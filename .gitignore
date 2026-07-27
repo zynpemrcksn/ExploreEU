@@ -1,0 +1,29 @@
+# Composer dependencies
+/vendor/
+
+# Drupal core and Composer-installed extensions
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+
+# Drupal generated files
+/web/sites/*/files/
+/web/sites/*/private/
+/web/sites/*/settings.local.php
+/web/sites/*/services.local.yml
+
+# Environment files
+.env
+.env.local
+
+# Database backups
+*.sql
+*.sql.gz
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
