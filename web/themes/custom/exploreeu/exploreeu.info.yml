@@ -1,0 +1,9 @@
+name: ExploreEU
+type: theme
+description: Custom ExploreEU sub-theme based on Xara.
+package: Custom
+core_version_requirement: ^11
+base theme: xara
+
+libraries:
+  - exploreeu/global-styling
