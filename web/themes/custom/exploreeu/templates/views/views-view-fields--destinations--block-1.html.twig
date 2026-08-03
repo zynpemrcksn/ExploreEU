@@ -1,0 +1,43 @@
+<div class="destination-card">
+
+  <div class="destination-image">
+    {{ fields.field_city_hero_image.content }}
+  </div>
+
+  <div class="destination-content">
+
+    <h3>
+      {{ fields.title.content }}
+    </h3>
+
+    <div class="country">
+      {{ fields.field_country.content }}
+    </div>
+
+    <div class="description">
+      {{ fields.field_short_description.content }}
+    </div>
+
+    <div class="meta">
+      <div>
+        💶 {{ fields.field_average_daily_budget.content }} per day
+      </div>
+
+      <div>
+        ⭐ {{ fields.field_student_friendly_score.content }}
+      </div>
+
+      <div>
+        🛏
+        {{ fields.field_minimum_recommended_stay.content }}
+        -
+        {{ fields.field_maximum_recommended_stay.content }}
+        days
+      </div>
+    </div>
+    <div class="destination-button">
+      {{ fields.view_node.content }}
+    </div>
+  </div>
+
+</div>

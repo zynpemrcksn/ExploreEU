@@ -2,17 +2,269 @@
  * ExploreEU custom theme styles.
  */
 
+/* General */
+
 body {
-  background-color: #f7fbfa;
+  background-color: #ffffff;
 }
 
 .site-branding__name,
 .site-name {
   color: #0f766e;
-}/*
- * ExploreEU custom theme styles.
- */
+}
 
-body {
+/* Featured Destinations */
+
+.featured-destinations-grid {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.featured-destinations-grid .views-row {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+}
+
+.featured-destinations-grid .views-col {
+  flex: 1 1 0;
+  min-width: 0;
+  width: auto !important;
+}
+
+/* Destination Card */
+
+.destination-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
   background-color: #ffffff;
+  border: 1px solid #e1ebe8;
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(24, 53, 49, 0.1);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(24, 53, 49, 0.16);
+}
+
+/* Destination Image */
+
+.destination-image {
+  overflow: hidden;
+}
+
+.destination-image img {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.destination-card:hover .destination-image img {
+  transform: scale(1.04);
+}
+
+/* Destination Content */
+
+.destination-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 22px;
+}
+
+.destination-content h3 {
+  margin: 0 0 6px;
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+.destination-content h3 a {
+  color: #193b36;
+  text-decoration: none;
+}
+
+.destination-content h3 a:hover {
+  color: #0f766e;
+}
+
+.destination-content .country {
+  margin-bottom: 14px;
+  color: #0f766e;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.destination-content .description {
+  flex: 1;
+  margin-bottom: 18px;
+  color: #475b57;
+  line-height: 1.6;
+}
+
+/* Destination Meta */
+
+.destination-content .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #e5efec;
+}
+
+.destination-content .meta > div {
+  padding: 7px 10px;
+  color: #294842;
+  font-size: 0.88rem;
+  font-weight: 600;
+  background-color: #eef8f5;
+  border-radius: 999px;
+}
+
+/* Destination Button */
+
+.destination-button {
+  margin-top: 18px;
+}
+
+.destination-button a {
+  display: inline-block;
+  padding: 12px 22px;
+  color: #ffffff !important;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #0f766e;
+  border-radius: 10px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.destination-button a:hover {
+  background-color: #115e59;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .featured-destinations-grid .views-row {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .featured-destinations-grid .views-col {
+    width: 100% !important;
+  }
+
+  .destination-content .description {
+    min-height: auto;
+  }
+}
+/* Homepage Intro */
+
+.homepage-intro {
+  max-width: 760px;
+  margin: 80px auto;
+  text-align: center;
+}
+
+.homepage-intro h2 {
+  margin-bottom: 18px;
+  color: #193b36;
+  font-size: 2.2rem;
+}
+
+.homepage-intro p {
+  max-width: 650px;
+  margin: 0 auto 35px;
+  color: #5b6d69;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.intro-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.intro-buttons a {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all .3s ease;
+}
+
+.intro-primary {
+  background: #0f766e;
+  color: #fff !important;
+}
+
+.intro-primary:hover {
+  background: #115e59;
+  transform: translateY(-3px);
+}
+
+.intro-secondary {
+  border: 2px solid #0f766e;
+  color: #0f766e !important;
+}
+
+.intro-secondary:hover {
+  background: #0f766e;
+  color: #fff !important;
+}
+/* Header Logo */
+
+.site-branding {
+  display: flex;
+  align-items: center;
+}
+
+.site-branding__logo img,
+.site-logo img {
+  margin-left: -80px; 
+  display: block;
+  width: 420px;
+  max-width: none;
+  max-height: 170px;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .site-branding__logo img,
+  .site-logo img {
+    width: 220px;
+    max-height: 90px;
+  }
+}
+/* Slider Height Override */
+
+.slider {
+  height: auto !important;
+  min-height: 650px;
+}
+
+.slider-container {
+  height: auto !important;
+  min-height: 650px;
+  padding: 60px 0;
+}
+.slider-image img {
+  width: 100%;
+  max-width: 560px;
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(0,0,0,.15);
 }
