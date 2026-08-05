@@ -268,3 +268,269 @@ body {
   border-radius: 24px;
   box-shadow: 0 18px 45px rgba(0,0,0,.15);
 }
+/* Full-width header */
+.header-main > .container {
+  width: 100%;
+  max-width: none;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.header-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 900px) {
+  .header-main > .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* =========================
+   Login Page
+   ========================= */
+
+/* Remove sidebar blocks and login tabs */
+.page-user-login #sidebar-left,
+.page-user-login #block-exploreeu-local-tasks {
+  display: none !important;
+}
+
+/* Make the content area use the full row */
+.page-user-login .main-container {
+  display: block;
+}
+
+.page-user-login .main-content {
+  float: none !important;
+  width: 100% !important;
+  max-width: 520px;
+  margin: 60px auto 80px;
+}
+
+/* Login card */
+.page-user-login .user-login-form {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 36px;
+  background: #ffffff;
+  border: 1px solid #dce9e6;
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(24, 53, 49, 0.12);
+}
+
+/* Form labels */
+.page-user-login .user-login-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #193b36;
+  font-weight: 600;
+}
+
+/* Form fields */
+.page-user-login .user-login-form input[type="text"],
+.page-user-login .user-login-form input[type="password"] {
+  width: 100%;
+  min-height: 46px;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #cdded9;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.page-user-login .user-login-form input[type="text"]:focus,
+.page-user-login .user-login-form input[type="password"]:focus {
+  border-color: #0f766e;
+  outline: 3px solid rgba(15, 118, 110, 0.12);
+}
+
+/* Form spacing */
+.page-user-login .user-login-form .form-item {
+  margin-bottom: 20px;
+}
+
+/* Login button */
+.page-user-login .user-login-form .form-submit {
+  width: 100%;
+  padding: 14px 24px;
+  color: #ffffff;
+  font-weight: 600;
+  background: #0f766e;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.page-user-login .user-login-form .form-submit:hover {
+  background: #115e59;
+  transform: translateY(-2px);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .page-user-login .main-content {
+    width: auto !important;
+    margin: 30px 16px 60px;
+  }
+
+  .page-user-login .user-login-form {
+    padding: 24px 20px;
+  }
+}
+/* =========================
+   Login Page - Desktop Fix
+   ========================= */
+
+@media (min-width: 601px) {
+  body.page-user-login #sidebar-left,
+  body.page-user-login #block-exploreeu-local-tasks {
+    display: none !important;
+  }
+
+  body.page-user-login .main-wrapper > .container {
+    width: 100%;
+    max-width: 1170px;
+  }
+
+  body.page-user-login .main-container {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  body.page-user-login main#main.main-content {
+    display: block !important;
+    float: none !important;
+    width: 520px !important;
+    max-width: calc(100% - 40px) !important;
+    margin: 50px auto 80px !important;
+  }
+
+  body.page-user-login .node-content,
+  body.page-user-login .region-content,
+  body.page-user-login #block-exploreeu-content {
+    width: 100% !important;
+  }
+}
+
+/* =========================
+   Login card visual layout
+   ========================= */
+
+.page-user-login .main-content {
+  max-width: 460px;
+  margin: 48px auto 80px;
+}
+
+.page-user-login .user-login-form {
+  padding: 32px;
+  border-radius: 18px;
+}
+
+.page-user-login .login-intro {
+  margin-bottom: 26px;
+  text-align: center;
+}
+
+.page-user-login .login-icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8f6f3;
+  border-radius: 50%;
+  font-size: 1.4rem;
+}
+
+.page-user-login .login-intro h1 {
+  margin: 0 0 8px;
+  color: #193b36;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.page-user-login .login-intro p {
+  margin: 0;
+  color: #63736f;
+  font-size: 0.98rem;
+}
+
+.page-user-login .user-login-form .form-item {
+  margin-bottom: 18px;
+}
+
+.page-user-login .user-login-form label {
+  margin-bottom: 7px;
+  font-size: 0.95rem;
+}
+
+.page-user-login .user-login-form input[type="text"],
+.page-user-login .user-login-form input[type="password"] {
+  min-height: 48px;
+  padding: 12px 14px;
+}
+
+.page-user-login .login-forgot-link {
+  display: block;
+  margin: -4px 0 18px;
+  text-align: right;
+  color: #0f766e;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.page-user-login .login-forgot-link:hover {
+  text-decoration: underline;
+}
+
+.page-user-login .user-login-form .form-actions {
+  margin: 0;
+}
+
+.page-user-login .user-login-form .form-submit {
+  min-height: 48px;
+  font-size: 1rem;
+}
+
+.page-user-login .login-signup {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #dce9e6;
+  text-align: center;
+  color: #536763;
+  font-size: 0.95rem;
+}
+
+.page-user-login .login-signup a {
+  margin-left: 4px;
+  color: #0f766e;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.page-user-login .login-signup a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .page-user-login .main-content {
+    width: auto !important;
+    margin: 28px 16px 60px;
+  }
+
+  .page-user-login .user-login-form {
+    padding: 24px 20px;
+  }
+
+  .page-user-login .login-intro h1 {
+    font-size: 1.7rem;
+  }
+}

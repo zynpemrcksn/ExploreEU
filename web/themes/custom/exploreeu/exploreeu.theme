@@ -1,0 +1,65 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_form_FORM_ID_alter() for the user login form.
+ */
+function exploreeu_form_user_login_form_alter(
+  array &$form,
+  FormStateInterface $form_state
+): void {
+  $form['login_intro'] = [
+    '#type' => 'markup',
+    '#markup' => '
+      <div class="login-intro">
+        <div class="login-icon" aria-hidden="true">🔒</div>
+        <h1>Welcome back</h1>
+        <p>Log in to continue your journey.</p>
+      </div>
+    ',
+    '#weight' => -100,
+  ];
+
+  $form['forgot_password'] = [
+    '#type' => 'link',
+    '#title' => t('Forgot your password?'),
+    '#url' => Url::fromRoute('user.pass'),
+    '#attributes' => [
+      'class' => ['login-forgot-link'],
+    ],
+    '#weight' => 20,
+  ];
+
+  $form['signup_prompt'] = [
+    '#type' => 'markup',
+    '#markup' => '
+      <div class="login-signup">
+        <span>Don\'t have an account?</span>
+        <a href="/user/register">Sign up</a>
+      </div>
+    ',
+    '#weight' => 40,
+  ];
+  $form['actions']['#weight'] = 30;
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function exploreeu_preprocess_html(array &$variables): void {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+
+  if ($route_name === 'user.login') {
+    $variables['attributes']['class'][] = 'page-user-login';
+  }
+
+  if ($route_name === 'user.register') {
+    $variables['attributes']['class'][] = 'page-user-register';
+  }
+
+  if ($route_name === 'user.pass') {
+    $variables['attributes']['class'][] = 'page-user-password';
+  }
+}
