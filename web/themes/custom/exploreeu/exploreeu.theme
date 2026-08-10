@@ -63,3 +63,37 @@ function exploreeu_preprocess_html(array &$variables): void {
     $variables['attributes']['class'][] = 'page-user-password';
   }
 }
+/**
+ * Implements for register page 
+ */
+function exploreeu_form_user_register_form_alter(
+ array &$form,
+ FormStateInterface $form_state
+): void {
+  $form['register_intro'] = [
+    '#type' => 'markup',
+    '#markup' => '
+      <div class="login-intro">
+        <div class="login-icon" aria-hidden="true">🌍</div>
+        <h1>Create your account</h1>
+        <p>Join ExploreEU and start planning your next adventure.</p>
+      </div>
+    ',
+    '#weight' => -100,
+  ];
+  unset($form['user_picture']);
+  $form['account']['mail']['#description'] = '';
+  $form['account']['name']['#description'] = '';
+  $form['login_prompt']= [
+    '#type' => 'markup',
+    '#markup' => '
+      <div class="register-login-prompt">
+        <span>Already have an account?</span>
+        <a href="/user/login">Log in</a>
+      </div>
+    ',
+    '#weight' => 40,
+   ];
+   
+   $form['actions']['#weight'] = 30;
+}
