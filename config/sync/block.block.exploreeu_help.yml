@@ -1,0 +1,22 @@
+uuid: beae8914-2954-4543-bd7b-1b33ef3bc687
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - exploreeu
+_core:
+  default_config_hash: HPmfLLacVaAGKBMPchjbxQDPXJnxAlDmMFAddP9QqF0
+id: exploreeu_help
+theme: exploreeu
+region: content
+weight: -6
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

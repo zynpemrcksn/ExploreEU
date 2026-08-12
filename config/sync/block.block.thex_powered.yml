@@ -1,0 +1,22 @@
+uuid: 1c256764-226b-498a-af5e-e4c3fd16c6f7
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - thex
+_core:
+  default_config_hash: EtIKp41roN6JihxAOi6ORLnwFs9Yuhy37lmS30-wbP4
+id: thex_powered
+theme: thex
+region: footer_bottom_last
+weight: -6
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

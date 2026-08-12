@@ -1,0 +1,22 @@
+uuid: 472f8450-800b-4143-9340-9a717d30b556
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - exploreeu
+_core:
+  default_config_hash: fYlkaWGVyyVrCnf0-bgwDn1KmgButUOiB74tl8zVeU0
+id: exploreeu_messages
+theme: exploreeu
+region: highlighted
+weight: -7
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

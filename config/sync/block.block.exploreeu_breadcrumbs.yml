@@ -1,0 +1,22 @@
+uuid: 96bcd381-eab6-4a77-a97d-ed8ed968f07d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - exploreeu
+_core:
+  default_config_hash: i0lFoVFCBZ6NWdnGV3fdRPHr6rMa1JQcOMLuRCFinEA
+id: exploreeu_breadcrumbs
+theme: exploreeu
+region: highlighted
+weight: -5
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

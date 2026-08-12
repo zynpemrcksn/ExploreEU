@@ -988,3 +988,2233 @@ body {
 }
 }
 
+/* ==================================================
+   EXPERIENCE CARDS
+   ================================================== */
+
+body:has(.experiences-page) #sidebar-left {
+  display: none !important;
+}
+
+body:has(.experiences-page) main {
+  width: 100% !important;
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  padding: 56px 24px 80px !important;
+}
+
+.experiences-page .view-content {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.experience-card {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+
+  align-items: stretch;
+  min-height: 270px;
+
+  overflow: hidden;
+
+  min-height: 270px;
+
+  background: #ffffff;
+
+  border: 1px solid #dce9e6;
+  border-radius: 18px;
+
+  box-shadow: 0 10px 30px rgba(24, 53, 49, 0.08);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 18px 40px rgba(24, 53, 49, 0.13);
+}
+
+/* IMAGE */
+
+.experience-card__image {
+  position: relative;
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.experience-card__image .field,
+.experience-card__image .field-item {
+  height: 100%;
+}
+
+.experience-card__image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  min-height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 0;
+}
+
+/* BODY */
+
+.experience-card__body {
+  display: flex;
+  flex-direction: column;
+
+  padding: 26px 30px;
+}
+
+/* TITLE */
+
+.experience-card__title {
+  margin: 0 0 8px;
+}
+
+.experience-card__title a {
+  color: #183531;
+
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+
+  text-decoration: none;
+}
+
+.experience-card__title a:hover {
+  color: #0f766e;
+}
+
+/* LOCATION */
+
+.experience-card__location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 16px;
+
+  color: #0f766e;
+
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.experience-card__location .field,
+.experience-card__location .field-item {
+  display: inline;
+}
+
+.experience-card__location a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.experience-card__dot {
+  color: #9fbab5;
+}
+
+/* STORY */
+
+.experience-card__story {
+  margin-bottom: 20px;
+
+  color: #536763;
+
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.experience-card__story p {
+  margin: 0;
+}
+
+/* FOOTER */
+
+.experience-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-top: auto;
+  padding-top: 18px;
+
+  border-top: 1px solid #e6efed;
+}
+
+.experience-card__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* DATE */
+
+.experience-card__date {
+  color: #60736f;
+
+  font-size: 0.82rem;
+}
+
+.experience-card__date .field,
+.experience-card__date .field-item {
+  display: inline;
+}
+
+.experience-card__date .field-label,
+.experience-card__date .field__label {
+  display: none;
+}
+
+.experience-card__dash {
+  margin: 0 4px;
+}
+
+/* RATING */
+
+.experience-card__rating {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 6px 11px;
+
+  color: #675400;
+  background: #fff5cc;
+
+  border-radius: 999px;
+
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.experience-card__rating .field,
+.experience-card__rating .field-item {
+  display: inline;
+}
+
+/* BUTTON */
+
+.experience-card__more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 40px;
+
+  padding: 0 17px;
+
+  color: #ffffff !important;
+  background: #0f8078;
+
+  border-radius: 9px;
+
+  font-size: 0.86rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+}
+
+.experience-card__more:hover {
+  background: #0c6963;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+  .experience-card {
+    grid-template-columns: 250px minmax(0, 1fr);
+  }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+
+  body:has(.experiences-page) main {
+    padding: 32px 16px 55px !important;
+  }
+
+  .experience-card {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-card__image {
+    height: 210px;
+    min-height: 210px;
+  }
+
+  .experience-card__image img {
+    height: 210px;
+    min-height: 210px;
+  }
+
+  .experience-card__body {
+    padding: 22px;
+  }
+
+  .experience-card__footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+}
+
+/* ==========================================================
+   EXPERIENCE DETAIL PAGE
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   PAGE LAYOUT
+   ---------------------------------------------------------- */
+
+body:has(.experience-detail) #sidebar-left {
+  display: none !important;
+}
+
+body:has(.experience-detail) main {
+  width: 100% !important;
+  max-width: 1180px !important;
+
+  margin: 0 auto !important;
+  padding: 52px 28px 90px !important;
+}
+
+.experience-detail {
+  width: 100%;
+}
+
+/* ==========================================================
+   EXPERIENCE PAGE - VIEW / EDIT / DELETE
+   ========================================================== */
+
+body:has(.experience-detail) #block-exploreeu-local-tasks {
+  width: fit-content !important;
+  margin: 0 0 32px !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body:has(.experience-detail)
+#block-exploreeu-local-tasks .block-content {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+  border: 0 !important;
+}
+
+/* Tabs container */
+body:has(.experience-detail)
+#block-exploreeu-local-tasks
+.page-tabs.primary-tab {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+
+  width: fit-content !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  list-style: none !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+  border-bottom: 0 !important;
+
+  box-shadow: none !important;
+}
+
+/* Theme pseudo elements / long line */
+body:has(.experience-detail)
+#block-exploreeu-local-tasks
+.page-tabs.primary-tab::before,
+
+body:has(.experience-detail)
+#block-exploreeu-local-tasks
+.page-tabs.primary-tab::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Each item */
+body:has(.experience-detail)
+#block-exploreeu-local-tasks
+.page-tabs.primary-tab > li {
+  display: block !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* All buttons */
+body:has(.experience-detail)
+#block-exploreeu-local-tasks
+.page-tabs.primary-tab > li > a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  min-height: 40px !important;
+  padding: 0 17px !important;
+
+  color: #0f766e !important;
+  background: #ffffff !important;
+
+  border: 1px solid #b8d9d3 !important;
+  border-radius: 9px !important;
+
+  box-shadow: none !important;
+
+  font-size: 0.86rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+
+  text-decoration: none !important;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease !important;
+}
+
+/* General hover */
+body:has(.experience-detail)
+#block-exploreeu-local-tasks
+.page-tabs.primary-tab > li > a:hover {
+  color: #ffffff !important;
+  background: #0f8078 !important;
+  border-color: #0f8078 !important;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 5px 14px rgba(15, 128, 120, 0.15) !important;
+}
+
+/* Active View */
+body:has(.experience-detail)
+#block-exploreeu-local-tasks
+.page-tabs.primary-tab
+> li.active-page-tab
+> a,
+
+body:has(.experience-detail)
+#block-exploreeu-local-tasks
+.page-tabs.primary-tab
+> li
+> a.is-active {
+  color: #ffffff !important;
+  background: #0f8078 !important;
+  border-color: #0f8078 !important;
+}
+
+/* Edit */
+body:has(.experience-detail)
+#block-exploreeu-local-tasks
+a[href$="/edit"] {
+  color: #0f766e !important;
+  background: #ffffff !important;
+}
+
+body:has(.experience-detail)
+#block-exploreeu-local-tasks
+a[href$="/edit"]:hover {
+  color: #ffffff !important;
+  background: #0f8078 !important;
+}
+
+/* Delete */
+body:has(.experience-detail)
+#block-exploreeu-local-tasks
+a[href$="/delete"] {
+  color: #aa5050 !important;
+  background: #ffffff !important;
+
+  border-color: #e4c6c6 !important;
+}
+
+body:has(.experience-detail)
+#block-exploreeu-local-tasks
+a[href$="/delete"]:hover {
+  color: #ffffff !important;
+  background: #b65b5b !important;
+  border-color: #b65b5b !important;
+}
+
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+
+.experience-detail__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  margin-bottom: 48px;
+  padding-bottom: 30px;
+
+  border-bottom: 1px solid #e1ece9;
+}
+
+.experience-detail__eyebrow {
+  margin-bottom: 10px;
+
+  color: #0f8078;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+}
+
+.experience-detail__title {
+  margin: 0;
+
+  color: #183531;
+
+  font-size: clamp(2.8rem, 6vw, 4.3rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.experience-detail__submitted {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 16px;
+
+  color: #72837f;
+
+  font-size: 0.88rem;
+}
+
+.experience-detail__separator {
+  color: #9eb0ac;
+}
+
+
+/* ==========================================================
+   STARS
+   ========================================================== */
+
+.experience-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  flex-shrink: 0;
+
+  padding: 9px 14px;
+
+  background: #fff8dc;
+
+  border-radius: 999px;
+}
+
+.experience-stars {
+  display: inline-flex;
+
+  gap: 2px;
+
+  line-height: 1;
+}
+
+.experience-stars span {
+  font-size: 1.05rem;
+}
+
+.experience-stars .is-filled {
+  color: #efb82f;
+}
+
+.experience-stars .is-empty {
+  color: #d7e0de;
+}
+
+.experience-rating__number {
+  color: #5d570e;
+
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+
+/* ==========================================================
+   MAIN TWO COLUMN LAYOUT
+   ========================================================== */
+
+.experience-detail__layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.5fr)
+    minmax(300px, 0.85fr);
+
+  gap: 64px;
+
+  align-items: start;
+}
+
+
+/* ==========================================================
+   STORY
+   ========================================================== */
+
+.experience-detail__story {
+  min-width: 0;
+}
+
+.experience-detail__story h2 {
+  margin: 0 0 28px;
+
+  color: #183531;
+
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.experience-detail__story-content {
+  color: #455d58;
+
+  font-size: 1.02rem;
+  line-height: 1.9;
+}
+
+.experience-detail__story-content .field,
+.experience-detail__story-content .field-item {
+  margin: 0;
+}
+
+.experience-detail__story-content p {
+  margin: 0 0 22px;
+}
+
+
+/* ==========================================================
+   RIGHT COLUMN
+   ========================================================== */
+
+.experience-detail__sidebar {
+  display: flex;
+  flex-direction: column;
+
+  gap: 26px;
+
+  min-width: 0;
+}
+
+
+/* ==========================================================
+   IMAGE / GALLERY
+   ========================================================== */
+
+.experience-detail__gallery {
+  width: 100%;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 12px 34px rgba(24, 53, 49, 0.10);
+}
+
+.experience-detail__gallery .field,
+.experience-detail__gallery .field-item {
+  width: 100%;
+}
+
+.experience-detail__gallery img {
+  display: block;
+
+  width: 100%;
+  height: 300px;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+/*
+ * Bir gün image field'i multi-value yaparsak,
+ * ikinci/üçüncü görseller de düzgün listelenir.
+ */
+.experience-detail__gallery .field-items {
+  display: grid;
+
+  gap: 12px;
+}
+
+
+/* ==========================================================
+   INFO CARD
+   ========================================================== */
+
+.experience-info-card {
+  padding: 26px;
+
+  background: #ffffff;
+
+  border: 1px solid #d9e8e5;
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 28px rgba(24, 53, 49, 0.06);
+}
+
+.experience-info-card__location {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  color: #183531;
+
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.experience-info-card__icon {
+  font-size: 1.15rem;
+}
+
+.experience-info-card__divider {
+  height: 1px;
+
+  margin: 22px 0;
+
+  background: #e2ece9;
+}
+
+.experience-info-card__heading {
+  margin-bottom: 10px;
+
+  color: #718681;
+
+  font-size: 0.71rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.experience-info-card__dates {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  color: #183531;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.experience-info-card__arrow {
+  color: #74a69e;
+}
+
+.experience-info-card__rating {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  color: #183531;
+
+  font-size: 0.9rem;
+}
+
+
+/* ==========================================================
+   COMMENTS
+   ========================================================== */
+
+.experience-detail__comments {
+  margin-top: 76px;
+  padding: 34px;
+
+  background: #f8fbfa;
+
+  border: 1px solid #dce9e6;
+  border-radius: 20px;
+}
+
+.experience-detail__comments h2,
+.experience-detail__comments h3 {
+  margin: 0 0 26px;
+
+  color: #183531;
+
+  font-size: 1.55rem;
+  font-weight: 700;
+}
+
+.experience-detail__comments .form-item {
+  margin-bottom: 20px;
+}
+
+.experience-detail__comments label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #36544e;
+
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+
+/* Subject */
+.experience-detail__comments input[type="text"] {
+  width: 100% !important;
+
+  box-sizing: border-box;
+
+  min-height: 44px;
+
+  padding: 0 14px;
+
+  color: #183531;
+  background: #ffffff;
+
+  border: 1px solid #cbded9;
+  border-radius: 9px;
+
+  outline: none;
+}
+
+.experience-detail__comments input[type="text"]:focus {
+  border-color: #7cb9af;
+
+  box-shadow:
+    0 0 0 3px rgba(15, 128, 120, 0.08);
+}
+
+
+/* ==========================================================
+   CKEDITOR
+   Keep toolbar natural / mostly default
+   ========================================================== */
+
+.experience-detail__comments .ck-editor {
+  width: 100%;
+}
+
+.experience-detail__comments .ck-toolbar {
+  background: #ffffff !important;
+
+  border-color: #cbded9 !important;
+
+  border-radius: 9px 9px 0 0 !important;
+}
+
+/* Custom yeşil toolbar butonlarını öldür */
+.experience-detail__comments .ck-button {
+  color: inherit !important;
+  background: transparent !important;
+
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.experience-detail__comments .ck-button:hover,
+.experience-detail__comments .ck-button.ck-on {
+  color: inherit !important;
+  background: #f1f4f3 !important;
+}
+
+.experience-detail__comments .ck-editor__editable {
+  min-height: 190px;
+
+  background: #ffffff !important;
+
+  border-color: #cbded9 !important;
+
+  border-radius: 0 0 9px 9px !important;
+}
+
+
+/* ==========================================================
+   COMMENT BUTTONS
+   ========================================================== */
+
+.experience-detail__comments input[type="submit"] {
+  min-height: 41px;
+
+  padding: 0 18px;
+
+  color: #ffffff !important;
+  background: #0f8078 !important;
+
+  border: 0 !important;
+  border-radius: 9px !important;
+
+  font-size: 0.86rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.experience-detail__comments input[type="submit"]:hover {
+  background: #0c6963 !important;
+
+  transform: translateY(-1px);
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+  .experience-detail__layout {
+    grid-template-columns: 1fr;
+
+    gap: 42px;
+  }
+
+  .experience-detail__sidebar {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: stretch;
+  }
+
+  .experience-detail__gallery img {
+    height: 100%;
+    min-height: 280px;
+  }
+
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 640px) {
+
+  body:has(.experience-detail) main {
+    padding: 32px 16px 56px !important;
+  }
+
+  body:has(.experience-detail) .tabs ul {
+    flex-wrap: wrap;
+  }
+
+  .experience-detail__header {
+    align-items: flex-start;
+    flex-direction: column;
+
+    margin-bottom: 34px;
+  }
+
+  .experience-detail__layout {
+    gap: 32px;
+  }
+
+  .experience-detail__sidebar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .experience-detail__gallery img {
+    height: 230px;
+    min-height: 0;
+  }
+
+  .experience-detail__comments {
+    margin-top: 48px;
+    padding: 22px;
+  }
+
+}
+
+/* ==========================================================
+   EXPERIENCE EDIT PAGE
+   ========================================================== */
+
+
+/* Ana içerik tek kolon */
+body:has(form.node-experience-edit-form) main {
+  width: 100% !important;
+  max-width: 920px !important;
+  margin: 0 auto !important;
+  padding: 48px 28px 90px !important;
+}
+
+/* Local tasks */
+body:has(form.node-experience-edit-form)
+#block-exploreeu-local-tasks {
+  width: fit-content !important;
+  margin: 0 0 28px !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+  background: transparent !important;
+}
+
+body:has(form.node-experience-edit-form)
+#block-exploreeu-local-tasks
+.page-tabs.primary-tab {
+  display: flex !important;
+  gap: 10px !important;
+
+  width: fit-content !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  list-style: none !important;
+
+  border: 0 !important;
+  background: transparent !important;
+}
+
+body:has(form.node-experience-edit-form)
+#block-exploreeu-local-tasks
+.page-tabs.primary-tab > li {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body:has(form.node-experience-edit-form)
+#block-exploreeu-local-tasks
+.page-tabs.primary-tab > li > a {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 40px;
+  padding: 0 16px !important;
+
+  color: #0f766e !important;
+  background: #ffffff !important;
+
+  border: 1px solid #b8d9d3 !important;
+  border-radius: 9px !important;
+
+  font-size: 0.86rem !important;
+  font-weight: 700 !important;
+
+  text-decoration: none !important;
+}
+
+/* Active Edit */
+body:has(form.node-experience-edit-form)
+#block-exploreeu-local-tasks
+.page-tabs.primary-tab > li.active-page-tab > a,
+body:has(form.node-experience-edit-form)
+#block-exploreeu-local-tasks
+.page-tabs.primary-tab > li > a.is-active {
+  color: #ffffff !important;
+  background: #0f8078 !important;
+  border-color: #0f8078 !important;
+}
+
+/* Delete */
+body:has(form.node-experience-edit-form)
+#block-exploreeu-local-tasks
+a[href$="/delete"] {
+  color: #aa5050 !important;
+  background: #ffffff !important;
+  border-color: #e4c6c6 !important;
+}
+
+
+/* ==========================================================
+   FORM
+   ========================================================== */
+
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form {
+  width: 100%;
+}
+
+/* Genel field spacing */
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.form-item,
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.field--widget-entity-reference-autocomplete,
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.field--widget-text-textarea-with-summary,
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.field--widget-image-image,
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.field--widget-datetime-default,
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.field--widget-options-select {
+  margin-bottom: 26px !important;
+}
+
+/* Labels */
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #2d4843;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Text inputs */
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+input[type="text"],
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+input[type="date"],
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+select {
+  width: 100% !important;
+  box-sizing: border-box;
+
+  min-height: 44px;
+
+  padding: 0 13px;
+
+  color: #183531;
+  background: #ffffff;
+
+  border: 1px solid #cbded9;
+  border-radius: 9px;
+
+  outline: none;
+}
+
+/* Focus */
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+input[type="text"]:focus,
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+input[type="date"]:focus,
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+select:focus {
+  border-color: #7ab8ae;
+
+  box-shadow:
+    0 0 0 3px rgba(15, 128, 120, 0.08);
+}
+
+/* Help text */
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.description {
+  margin-top: 7px;
+
+  color: #72847f;
+
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+
+/* ==========================================================
+   REVISION PANEL
+   ========================================================== */
+
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.node-form-revision-information {
+  margin-bottom: 26px !important;
+  padding: 20px !important;
+
+  background: #f5faf9;
+
+  border: 1px solid #dce9e6;
+  border-radius: 14px;
+}
+
+
+/* ==========================================================
+   CKEDITOR
+   ========================================================== */
+
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.ck-toolbar {
+  background: #ffffff !important;
+
+  border-color: #cbded9 !important;
+
+  border-radius: 9px 9px 0 0 !important;
+}
+
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.ck-button {
+  color: inherit !important;
+  background: transparent !important;
+
+  border: 0 !important;
+}
+
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.ck-button:hover,
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.ck-button.ck-on {
+  background: #f0f3f2 !important;
+}
+
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.ck-editor__editable {
+  min-height: 230px;
+
+  background: #ffffff !important;
+
+  border-color: #cbded9 !important;
+
+  border-radius: 0 0 9px 9px !important;
+}
+
+
+/* ==========================================================
+   IMAGE FIELD
+   ========================================================== */
+
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.image-widget {
+  padding: 18px;
+
+  background: #f8fbfa;
+
+  border: 1px solid #dce9e6;
+  border-radius: 12px;
+}
+
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.image-preview img {
+  max-width: 120px;
+  height: auto;
+
+  border-radius: 8px;
+}
+
+
+/* ==========================================================
+   EDIT FORM ACTIONS
+   Save / Preview / Delete
+   ========================================================== */
+
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.form-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+
+  margin: 0 !important;
+  padding: 22px 0 0 !important;
+
+  border-top: 1px solid #dce9e6;
+}
+
+/* Hepsi aynı ölçü */
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.form-actions
+input[type="submit"],
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.form-actions
+.button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 96px !important;
+  height: 40px !important;
+  min-height: 40px !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 0 14px !important;
+
+  border-radius: 9px !important;
+
+  font-size: 0.86rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+
+  text-align: center !important;
+
+  cursor: pointer;
+}
+
+/* SAVE */
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.form-actions
+input[value="Save"] {
+  color: #ffffff !important;
+  background: #0f8078 !important;
+
+  border: 1px solid #0f8078 !important;
+}
+
+/* PREVIEW */
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.form-actions
+input[value="Preview"] {
+  color: #0f766e !important;
+  background: #ffffff !important;
+
+  border: 1px solid #b8d9d3 !important;
+}
+
+/* DELETE */
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.form-actions
+input[value="Delete"] {
+  color: #aa5050 !important;
+  background: #ffffff !important;
+
+  border: 1px solid #e4c6c6 !important;
+}
+
+/* Hover */
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.form-actions
+input[value="Save"]:hover {
+  background: #0c6963 !important;
+}
+
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.form-actions
+input[value="Preview"]:hover {
+  color: #ffffff !important;
+  background: #0f8078 !important;
+}
+
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.form-actions
+input[value="Delete"]:hover {
+  color: #ffffff !important;
+  background: #b65b5b !important;
+  border-color: #b65b5b !important;
+}
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 640px) {
+  body:has(form.node-experience-edit-form) main {
+    padding: 30px 16px 56px !important;
+  }
+
+  body:has(form.node-experience-edit-form)
+  #block-exploreeu-local-tasks
+  .page-tabs.primary-tab {
+    flex-wrap: wrap;
+  }
+}
+
+/* ==========================================================
+   COMPLETELY REMOVE REVISION / VERTICAL TABS
+   ========================================================== */
+
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form
+.form-type-vertical-tabs {
+  display: none !important;
+}
+
+/* Form actions always last */
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form > * {
+  order: 10;
+}
+
+body:has(form.node-experience-edit-form)
+form.node-experience-edit-form > .form-actions {
+  order: 100 !important;
+}
+
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+  body:has(.node-preview-form-select) .node-preview-form-select {
+    width: calc(100% - 30px);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  body:has(.node-preview-form-select) .node-preview-backlink {
+    justify-content: center;
+  }
+
+  body:has(.node-preview-form-select) .form-item-view-mode {
+    justify-content: space-between;
+  }
+
+  body:has(.node-preview-form-select) .form-item-view-mode select {
+    flex: 1;
+  }
+}
+
+/* ==========================================================
+   EXPERIENCE PREVIEW - CLEAN
+   ========================================================== */
+
+/* Preview toolbar */
+body:has(.node-preview-form-select) .node-preview-container {
+  width: 100% !important;
+  max-width: none !important;
+
+  margin: 0 !important;
+  padding: 16px 0 !important;
+
+  background: #ffffff !important;
+
+  border-top: 1px solid #d8ebe7 !important;
+  border-bottom: 1px solid #d8ebe7 !important;
+}
+
+/* Toolbar inner alignment */
+body:has(.node-preview-form-select) .node-preview-form-select {
+  width: min(1170px, calc(100% - 40px)) !important;
+  margin: 0 auto !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 24px !important;
+}
+
+/* Back button */
+body:has(.node-preview-form-select) .node-preview-backlink {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+
+  margin-left: 15px;
+
+  min-height: 40px !important;
+  padding: 0 15px !important;
+
+  color: #0f766e !important;
+  background: #ffffff !important;
+
+  border: 1px solid #b8d9d3 !important;
+  border-radius: 9px !important;
+
+  font-size: 0.84rem !important;
+  font-weight: 700 !important;
+
+  text-decoration: none !important;
+}
+
+body:has(.node-preview-form-select) .node-preview-backlink::before {
+  content: "←";
+}
+
+/* View mode */
+body:has(.node-preview-form-select) .form-item-view-mode {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+
+  margin: 0 !important;
+}
+
+body:has(.node-preview-form-select) .form-item-view-mode label {
+  margin: 0 !important;
+
+  color: #45615c !important;
+
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+}
+
+body:has(.node-preview-form-select) .form-item-view-mode select {
+  width: 120px !important;
+  height: 40px !important;
+
+  margin: 0 !important;
+  padding: 0 34px 0 12px !important;
+
+  color: #183531 !important;
+  background: #ffffff !important;
+
+  border: 1px solid #b8d9d3 !important;
+  border-radius: 9px !important;
+
+  font-size: 0.84rem !important;
+  font-weight: 600 !important;
+}
+
+/* Hidden Drupal switch */
+body:has(.node-preview-form-select)
+.node-preview-form-select input[type="submit"] {
+  display: none !important;
+}
+
+/* Remove theme sidebar in preview */
+body:has(.node-preview-form-select) #sidebar-left {
+  display: none !important;
+}
+
+body:has(.node-preview-form-select) .main-container {
+  display: block !important;
+}
+
+body:has(.node-preview-form-select) .main-content {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+  margin: 0 !important;
+}
+/* ==========================================================
+   PREVIEW CONTENT - SPACE BELOW TOOLBAR
+   ========================================================== */
+
+body:has(.node-preview-form-select)
+#block-exploreeu-content > .block-content {
+  padding-top: 55px !important;
+  box-sizing: border-box;
+}
+
+/* Teaser kart kendi ekstra marginini almasın */
+body:has(.node-preview-form-select)
+#block-exploreeu-content .experience-card {
+  margin-top: 0 !important;
+}
+
+/* Full preview de aynı hizada başlasın */
+body:has(.node-preview-form-select)
+#block-exploreeu-content .experience-detail {
+  margin-top: 0 !important;
+}
+
+/* Add new comment başlığındaki eski dekoratif ikonu kaldır */
+.add-comment-title::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* ==========================================================
+   EXPERIENCES PAGE HEADER
+   ========================================================== */
+
+.experiences-page__top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+
+  margin-bottom: 34px;
+  padding-bottom: 24px;
+
+  border-bottom: 1px solid #dce9e6;
+}
+
+.experiences-page__eyebrow {
+  margin-bottom: 7px;
+
+  color: #0f8078;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+}
+
+.experiences-page__title {
+  margin: 0;
+
+  color: #183531;
+
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.experiences-page__intro {
+  margin: 10px 0 0;
+
+  color: #687d78;
+
+  font-size: 0.95rem;
+}
+
+/* Add Experience */
+.experiences-page__add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+  padding: 0 18px;
+
+  color: #ffffff !important;
+  background: #0f8078;
+
+  border-radius: 9px;
+
+  font-size: 0.86rem;
+  font-weight: 700;
+
+  text-decoration: none !important;
+
+  white-space: nowrap;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.experiences-page__add:hover {
+  background: #0c6963;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .experiences-page__top {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .experiences-page__add {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* ==========================================================
+   CREATE EXPERIENCE PAGE - FINAL
+   ========================================================== */
+
+/* Ana create form */
+body:has(form.node-experience-form)
+form.node-experience-form {
+  width: min(980px, calc(100% - 40px));
+
+  margin: 45px auto 70px;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  color: #183531;
+}
+
+
+/* ==========================================================
+   BREADCRUMB
+   Highlighted region içinde kalır,
+   sadece form ile aynı hizada gösterilir.
+   ========================================================== */
+
+body:has(form.node-experience-form)
+.region-highlighted .breadcrumb {
+  width: min(980px, calc(100% - 40px));
+
+  margin-left: auto;
+  margin-right: auto;
+
+  box-sizing: border-box;
+}
+
+
+/* ==========================================================
+   GENERAL FORM SPACING
+   ========================================================== */
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.form-item {
+  margin-bottom: 24px;
+}
+
+body:has(form.node-experience-form)
+form.node-experience-form
+label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #183531;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+
+/* ==========================================================
+   INPUTS / SELECTS
+   ========================================================== */
+
+body:has(form.node-experience-form)
+form.node-experience-form
+input[type="text"],
+
+body:has(form.node-experience-form)
+form.node-experience-form
+input[type="date"],
+
+body:has(form.node-experience-form)
+form.node-experience-form
+select {
+  width: 100%;
+  max-width: 100%;
+  min-height: 44px;
+
+  box-sizing: border-box;
+
+  padding: 10px 13px;
+
+  color: #183531;
+  background: #ffffff;
+
+  border: 1px solid #bcded8;
+  border-radius: 8px;
+
+  font-family: inherit;
+  font-size: 0.92rem;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+body:has(form.node-experience-form)
+form.node-experience-form
+input[type="text"]:focus,
+
+body:has(form.node-experience-form)
+form.node-experience-form
+input[type="date"]:focus,
+
+body:has(form.node-experience-form)
+form.node-experience-form
+select:focus {
+  border-color: #0f8078;
+
+  box-shadow:
+    0 0 0 3px rgba(15, 128, 120, 0.08);
+}
+
+body:has(form.node-experience-form)
+form.node-experience-form
+select {
+  cursor: pointer;
+}
+
+
+/* ==========================================================
+   DESCRIPTION / HELP TEXT
+   ========================================================== */
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.description {
+  margin-top: 6px;
+
+  color: #71847f;
+
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+
+/* ==========================================================
+   STORY / CKEDITOR
+   ========================================================== */
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.ck-editor {
+  width: 100%;
+
+  border-radius: 9px;
+
+  overflow: hidden;
+}
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.ck-toolbar {
+  background: #ffffff !important;
+
+  border-color: #cbded9 !important;
+
+  border-radius: 9px 9px 0 0 !important;
+}
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.ck-button {
+  color: inherit !important;
+  background: transparent !important;
+
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.ck-button:hover,
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.ck-button.ck-on {
+  background: #f1f4f3 !important;
+}
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.ck-editor__editable {
+  min-height: 260px;
+
+  background: #ffffff !important;
+
+  border-color: #cbded9 !important;
+
+  border-radius: 0 0 9px 9px !important;
+}
+
+
+/* ==========================================================
+   IMAGE FIELD
+   ========================================================== */
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.field--name-field-experience-image {
+  margin-top: 8px;
+  padding: 22px;
+
+  box-sizing: border-box;
+
+  background: #f7fbfa;
+
+  border: 1px solid #d8ebe7;
+  border-radius: 10px;
+}
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.field--name-field-experience-image
+.form-item {
+  margin-bottom: 12px;
+}
+
+
+/* ==========================================================
+   DATE + RATING
+   ========================================================== */
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.field--name-field-travel-start-date,
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.field--name-field-travel-end-date,
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.field--name-field-my-rating {
+  margin-top: 5px;
+}
+
+/* ==========================================================
+   CREATE EXPERIENCE - MODERATION INLINE
+   ========================================================== */
+
+/* Moderation alanı formun en altında kalır */
+body:has(form.node-experience-form)
+form.node-experience-form
+#edit-footer {
+  order: 900 !important;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  margin: 28px 0 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+  border: 0 !important;
+}
+
+/* Drupal moderation wrapper */
+body:has(form.node-experience-form)
+form.node-experience-form
+#edit-moderation-state-wrapper {
+  width: auto;
+  min-width: 0;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* İç wrapper */
+body:has(form.node-experience-form)
+form.node-experience-form
+#edit-moderation-state-0 {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Save as + dropdown aynı satır */
+body:has(form.node-experience-form)
+form.node-experience-form
+.form-item-moderation-state-0-state {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Save as */
+body:has(form.node-experience-form)
+form.node-experience-form
+.form-item-moderation-state-0-state label {
+  display: inline-block;
+
+  margin: 0 !important;
+
+  color: #183531;
+
+  font-size: 0.88rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+/* Draft / Review dropdown */
+body:has(form.node-experience-form)
+form.node-experience-form
+.form-item-moderation-state-0-state select {
+  width: 150px !important;
+  min-width: 150px !important;
+  height: 40px;
+
+  margin: 0 !important;
+  padding: 0 34px 0 12px !important;
+
+  color: #183531;
+  background: #ffffff;
+
+  border: 1px solid #bcded8;
+  border-radius: 8px;
+}
+
+/* ==========================================================
+   SAVE / PREVIEW ACTION BAR
+   ========================================================== */
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.form-actions {
+  order: 999 !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  gap: 10px;
+
+  margin: 16px 0 0 !important;
+  padding: 20px 0 0 !important;
+
+  border-top: 1px solid #d8e8e5;
+}
+
+
+/* Save + Preview ortak boyut */
+body:has(form.node-experience-form)
+form.node-experience-form
+.form-actions
+.button,
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.form-actions
+input[type="submit"] {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+
+  width: 96px !important;
+  height: 40px !important;
+  min-height: 40px !important;
+
+  box-sizing: border-box;
+
+  margin: 0 !important;
+  padding: 0 14px !important;
+
+  border-radius: 9px !important;
+
+  font-family: inherit;
+  font-size: 0.86rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* SAVE */
+body:has(form.node-experience-form)
+form.node-experience-form
+.form-actions
+.button--primary,
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.form-actions
+input[value="Save"] {
+  color: #ffffff !important;
+  background: #0f8078 !important;
+
+  border: 1px solid #0f8078 !important;
+}
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.form-actions
+.button--primary:hover,
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.form-actions
+input[value="Save"]:hover {
+  color: #ffffff !important;
+  background: #0c6963 !important;
+
+  border-color: #0c6963 !important;
+
+  transform: translateY(-1px);
+}
+
+
+/* PREVIEW */
+body:has(form.node-experience-form)
+form.node-experience-form
+.form-actions
+input[value="Preview"] {
+  color: #0f766e !important;
+  background: #ffffff !important;
+
+  border: 1px solid #a9d2cc !important;
+}
+
+body:has(form.node-experience-form)
+form.node-experience-form
+.form-actions
+input[value="Preview"]:hover {
+  color: #ffffff !important;
+  background: #0f8078 !important;
+
+  border-color: #0f8078 !important;
+
+  transform: translateY(-1px);
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+  body:has(form.node-experience-form)
+  form.node-experience-form {
+    width: calc(100% - 30px);
+
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+
+
+  body:has(form.node-experience-form)
+  .region-highlighted .breadcrumb {
+    width: calc(100% - 30px);
+  }
+
+
+  body:has(form.node-experience-form)
+  form.node-experience-form
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+
+
+  body:has(form.node-experience-form)
+  form.node-experience-form
+  .form-actions
+  .button,
+
+  body:has(form.node-experience-form)
+  form.node-experience-form
+  .form-actions
+  input[type="submit"] {
+    width: 100% !important;
+  }
+
+}
+
+/* ==========================================================
+   CREATE EXPERIENCE HEADER
+   ========================================================== */
+
+body:has(form.node-experience-form)
+#block-exploreeu-createexperienceheader {
+  width: min(980px, calc(100% - 40px));
+  margin: 22px auto 0;
+  padding: 0 0 26px;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid #dce9e6;
+}
+
+/* Block content'teki paragraflar */
+body:has(form.node-experience-form)
+#block-exploreeu-createexperienceheader .block-content {
+  margin: 0;
+}
+
+/* SHARE YOUR STORY */
+body:has(form.node-experience-form)
+#block-exploreeu-createexperienceheader p:nth-child(1) {
+  margin: 0 0 8px;
+
+  color: #0f8078;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+}
+
+/* Create Experience */
+body:has(form.node-experience-form)
+#block-exploreeu-createexperienceheader p:nth-child(2) {
+  margin: 0;
+
+  color: #183531;
+
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* Açıklama */
+body:has(form.node-experience-form)
+#block-exploreeu-createexperienceheader p:nth-child(3) {
+  margin: 10px 0 0;
+
+  color: #687d78;
+
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Header geldikten sonra form yukarı yaklaşsın */
+body:has(form.node-experience-form)
+form.node-experience-form {
+  margin-top: 30px;
+}

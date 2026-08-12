@@ -1,0 +1,22 @@
+uuid: 0c000dbd-e283-4f99-b677-3deb7f72cd6c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - xara
+_core:
+  default_config_hash: fYlkaWGVyyVrCnf0-bgwDn1KmgButUOiB74tl8zVeU0
+id: xara_messages
+theme: xara
+region: hidden
+weight: 1
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

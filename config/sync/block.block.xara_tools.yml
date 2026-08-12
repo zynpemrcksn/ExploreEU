@@ -1,0 +1,27 @@
+uuid: d48a3ab9-bd77-4bcb-8bed-0b6165841c2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.tools
+  module:
+    - system
+  theme:
+    - xara
+_core:
+  default_config_hash: dYOqerdPFgi1x1lZt5M0i2q5PZ7GepBj_u-X5eeKElk
+id: xara_tools
+theme: xara
+region: hidden
+weight: -4
+provider: null
+plugin: 'system_menu_block:tools'
+settings:
+  id: 'system_menu_block:tools'
+  label: Tools
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

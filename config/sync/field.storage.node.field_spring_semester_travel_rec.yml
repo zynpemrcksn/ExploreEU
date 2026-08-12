@@ -1,0 +1,19 @@
+uuid: a4421cf8-6b21-4fba-8eaf-0b8968bef586
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_spring_semester_travel_rec
+field_name: field_spring_semester_travel_rec
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

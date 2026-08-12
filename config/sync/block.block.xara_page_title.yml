@@ -1,0 +1,20 @@
+uuid: 1c791a01-e397-4d33-abe4-a2db3574cfb8
+langcode: en
+status: true
+dependencies:
+  theme:
+    - xara
+_core:
+  default_config_hash: IaMVuQOYM1cmbz9zB2mWQ_wPiP69EnmOYJMbD8XR7V4
+id: xara_page_title
+theme: xara
+region: hidden
+weight: -1
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

@@ -1,0 +1,9 @@
+uuid: 83481093-82f6-42ed-81ad-fde702c5cce6
+langcode: en
+status: true
+dependencies: {  }
+name: Countries
+vid: countries
+description: null
+weight: 0
+new_revision: false

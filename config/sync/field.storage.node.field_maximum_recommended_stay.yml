@@ -1,0 +1,20 @@
+uuid: 47bbb980-7b7c-4609-add8-e139f2c13ec1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_maximum_recommended_stay
+field_name: field_maximum_recommended_stay
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

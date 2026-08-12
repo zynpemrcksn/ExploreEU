@@ -1,0 +1,23 @@
+uuid: 04bc745a-96ab-4109-90b1-832fe770bfdb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_student_friendly_score
+    - node.type.city
+id: node.city.field_student_friendly_score
+field_name: field_student_friendly_score
+entity_type: node
+bundle: city
+label: 'Student Friendly Score'
+description: 'Rate how suitable the city is for students from 1 to 5.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: 5
+  prefix: ''
+  suffix: /5
+field_type: integer

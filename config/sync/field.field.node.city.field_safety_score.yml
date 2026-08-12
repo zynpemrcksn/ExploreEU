@@ -1,0 +1,23 @@
+uuid: 7beffcbd-a1c9-4ab7-a492-d5920f831791
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_safety_score
+    - node.type.city
+id: node.city.field_safety_score
+field_name: field_safety_score
+entity_type: node
+bundle: city
+label: 'Safety Score'
+description: 'Rate the overall safety of the city from 1 to 5.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: 5
+  prefix: ''
+  suffix: /5
+field_type: integer

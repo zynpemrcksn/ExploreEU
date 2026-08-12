@@ -1,0 +1,17 @@
+uuid: b7b4b9c0-bc36-4d45-8007-5bc5960404f7
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Country
+type: country
+description: 'Represents a European country and groups its related cities.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

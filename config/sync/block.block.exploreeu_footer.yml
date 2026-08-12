@@ -1,0 +1,27 @@
+uuid: 182e6a0a-f5a9-46a5-bf9b-132ba01d364c
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - exploreeu
+_core:
+  default_config_hash: 4y5wWCxplKbNliutHxezAGgv3_Js3sNIIJ7plrrkqOw
+id: exploreeu_footer
+theme: exploreeu
+region: sidebar_first
+weight: -11
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: 'Footer menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

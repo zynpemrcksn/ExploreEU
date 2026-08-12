@@ -1,0 +1,43 @@
+uuid: 734be0e3-0886-4a56-92ec-062d6986a82a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.experience
+    - taxonomy.vocabulary.tags
+    - workflows.workflow.experience_moderation
+  module:
+    - comment
+    - content_moderation
+    - contextual
+    - file
+    - node
+    - path
+    - system
+    - taxonomy
+_core:
+  default_config_hash: og55Zu0F-q-X8zG0Ohrls49zws6IrmmosZS-30Es8vw
+id: content_editor
+label: 'Content editor'
+weight: 2
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access files overview'
+  - 'administer url aliases'
+  - 'create terms in tags'
+  - 'create url aliases'
+  - 'delete own files'
+  - 'edit any experience content'
+  - 'edit own comments'
+  - 'edit terms in tags'
+  - 'revert all revisions'
+  - 'use experience_moderation transition archive'
+  - 'use experience_moderation transition publish'
+  - 'use experience_moderation transition request_changes'
+  - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view own unpublished content'
+  - 'view the administration theme'

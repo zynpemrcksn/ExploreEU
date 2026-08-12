@@ -1,0 +1,25 @@
+uuid: ec58dde3-9add-4a1d-bf83-7337ff0303e0
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - exploreeu
+_core:
+  default_config_hash: YVWwBKm0JC7x3h7h7HWTH_-5tu2UI0ofRG4ZzmpUz8E
+id: exploreeu_branding
+theme: exploreeu
+region: header
+weight: -8
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

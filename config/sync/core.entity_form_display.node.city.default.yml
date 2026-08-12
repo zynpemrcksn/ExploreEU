@@ -1,0 +1,222 @@
+uuid: b670fbf8-cf08-4fcc-b3b2-a1b20559ff4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.city.field_atm_payment_information
+    - field.field.node.city.field_average_daily_budget
+    - field.field.node.city.field_city_hero_image
+    - field.field.node.city.field_country
+    - field.field.node.city.field_detailed_city_guide
+    - field.field.node.city.field_emergency_information
+    - field.field.node.city.field_fall_semester_travel_recom
+    - field.field.node.city.field_internet_sim_information
+    - field.field.node.city.field_latitude
+    - field.field.node.city.field_longitude
+    - field.field.node.city.field_maximum_recommended_stay
+    - field.field.node.city.field_minimum_recommended_stay
+    - field.field.node.city.field_photo_gallery
+    - field.field.node.city.field_public_transportation_info
+    - field.field.node.city.field_safety_score
+    - field.field.node.city.field_short_description
+    - field.field.node.city.field_spring_semester_travel_rec
+    - field.field.node.city.field_student_friendly_score
+    - field.field.node.city.field_transportation_tips
+    - image.style.thumbnail
+    - node.type.city
+  module:
+    - image
+    - path
+    - text
+id: node.city.default
+targetEntityType: node
+bundle: city
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_atm_payment_information:
+    type: text_textarea
+    weight: 138
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_average_daily_budget:
+    type: number
+    weight: 128
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_city_hero_image:
+    type: image_image
+    weight: 123
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_country:
+    type: entity_reference_autocomplete
+    weight: 121
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_detailed_city_guide:
+    type: text_textarea
+    weight: 125
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_emergency_information:
+    type: text_textarea
+    weight: 139
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_fall_semester_travel_recom:
+    type: text_textarea
+    weight: 133
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_internet_sim_information:
+    type: text_textarea
+    weight: 137
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_latitude:
+    type: number
+    weight: 126
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_longitude:
+    type: number
+    weight: 127
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_maximum_recommended_stay:
+    type: number
+    weight: 132
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_minimum_recommended_stay:
+    type: number
+    weight: 131
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_photo_gallery:
+    type: image_image
+    weight: 140
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_public_transportation_info:
+    type: text_textarea
+    weight: 135
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_safety_score:
+    type: number
+    weight: 129
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_short_description:
+    type: text_textarea
+    weight: 124
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_spring_semester_travel_rec:
+    type: text_textarea
+    weight: 134
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_student_friendly_score:
+    type: number
+    weight: 130
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_transportation_tips:
+    type: text_textarea
+    weight: 136
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 120
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  promote: true
+  sticky: true

@@ -1,0 +1,22 @@
+uuid: 3244cbb0-15b5-4264-904e-1a1d5c58ec45
+langcode: en
+status: true
+dependencies:
+  theme:
+    - xara
+_core:
+  default_config_hash: tVkso4A7dn2kAz-tzylL3cHjWLactLiIBgi6XfZu4EI
+id: xara_local_tasks
+theme: xara
+region: hidden
+weight: 2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

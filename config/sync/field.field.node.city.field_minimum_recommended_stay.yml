@@ -1,0 +1,23 @@
+uuid: b1d272f3-7818-404e-8e26-4b497abc2925
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_minimum_recommended_stay
+    - node.type.city
+id: node.city.field_minimum_recommended_stay
+field_name: field_minimum_recommended_stay
+entity_type: node
+bundle: city
+label: 'Minimum Recommended Stay'
+description: 'Enter the minimum recommended number of days to visit this city.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: 30
+  prefix: ''
+  suffix: ''
+field_type: integer

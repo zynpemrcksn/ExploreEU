@@ -1,0 +1,176 @@
+{#
+/**
+ * Experience - Full content
+ */
+#}
+
+{% set rating = node.field_my_rating.value|default(0) %}
+{% set city = node.field_city.entity ? node.field_city.entity.label : '' %}
+{% set country = node.field_country.entity ? node.field_country.entity.label : '' %}
+{% set start_date = node.field_travel_start_date.value|default('') %}
+{% set end_date = node.field_travel_end_date.value|default('') %}
+
+<article{{ attributes.addClass('experience-detail') }}>
+
+  {{ title_prefix }}
+  {{ title_suffix }}
+
+  {# =========================
+     HEADER
+     ========================= #}
+
+  <header class="experience-detail__header">
+
+    <div class="experience-detail__heading">
+
+      <div class="experience-detail__eyebrow">
+        Travel experience
+      </div>
+
+      <h1 class="experience-detail__title">
+        {{ label }}
+      </h1>
+
+      {% if display_submitted %}
+        <div class="experience-detail__submitted">
+          <span>Shared by {{ author_name }}</span>
+          <span class="experience-detail__separator">•</span>
+          <span>{{ date }}</span>
+        </div>
+      {% endif %}
+
+    </div>
+
+    <div
+      class="experience-rating"
+      aria-label="{{ rating }} out of 5"
+    >
+      <div class="experience-stars">
+
+        {% for i in 1..5 %}
+          <span class="{{ i <= rating ? 'is-filled' : 'is-empty' }}">
+            ★
+          </span>
+        {% endfor %}
+
+      </div>
+
+      <span class="experience-rating__number">
+        {{ rating }}/5
+      </span>
+    </div>
+
+  </header>
+
+
+  {# =========================
+     MAIN TWO-COLUMN AREA
+     ========================= #}
+
+  <div class="experience-detail__layout">
+
+    {# LEFT - STORY #}
+    <section class="experience-detail__story">
+
+      <h2>The experience</h2>
+
+      <div class="experience-detail__story-content">
+        {{ content.field_experience_story }}
+      </div>
+
+    </section>
+
+
+    {# RIGHT #}
+    <aside class="experience-detail__sidebar">
+
+      {# IMAGE #}
+      <div class="experience-detail__gallery">
+        {{ content.field_experience_image }}
+      </div>
+
+
+      {# INFORMATION CARD #}
+      <div class="experience-info-card">
+
+        <div class="experience-info-card__location">
+
+          <span class="experience-info-card__icon">
+            📍
+          </span>
+
+          <span>
+            {{ city }}{% if city and country %}, {% endif %}{{ country }}
+          </span>
+
+        </div>
+
+
+        <div class="experience-info-card__divider"></div>
+
+
+        <div class="experience-info-card__item">
+
+          <div class="experience-info-card__heading">
+            Travel dates
+          </div>
+
+          <div class="experience-info-card__dates">
+
+            {% if start_date %}
+              <span>{{ start_date|date('d M Y') }}</span>
+            {% endif %}
+
+            {% if end_date %}
+              <span class="experience-info-card__arrow">→</span>
+              <span>{{ end_date|date('d M Y') }}</span>
+            {% endif %}
+
+          </div>
+
+        </div>
+
+
+        <div class="experience-info-card__divider"></div>
+
+
+        <div class="experience-info-card__item">
+
+          <div class="experience-info-card__heading">
+            Traveller rating
+          </div>
+
+          <div class="experience-info-card__rating">
+
+            <div class="experience-stars">
+
+              {% for i in 1..5 %}
+                <span class="{{ i <= rating ? 'is-filled' : 'is-empty' }}">
+                  ★
+                </span>
+              {% endfor %}
+
+            </div>
+
+            <strong>{{ rating }}/5</strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+  </div>
+
+
+  {# =========================
+     COMMENTS
+     ========================= #}
+
+  <section class="experience-detail__comments">
+    {{ content.field_comments }}
+  </section>
+
+</article>

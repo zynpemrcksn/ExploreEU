@@ -1,0 +1,23 @@
+uuid: 45bb59ae-3dbe-4a84-a51d-b0707e25790f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_maximum_recommended_stay
+    - node.type.city
+id: node.city.field_maximum_recommended_stay
+field_name: field_maximum_recommended_stay
+entity_type: node
+bundle: city
+label: 'Maximum Recommended Stay'
+description: 'Enter the maximum recommended number of days to visit this city.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: 30
+  prefix: ''
+  suffix: ''
+field_type: integer

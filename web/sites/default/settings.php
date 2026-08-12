@@ -880,3 +880,4 @@ if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 $settings['enable_html5_validation'] = FALSE;
+$settings['config_sync_directory'] = '../config/sync';

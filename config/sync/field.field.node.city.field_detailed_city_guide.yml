@@ -1,0 +1,24 @@
+uuid: f361a397-3ae9-458f-b456-f2aa3f00fe2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_detailed_city_guide
+    - filter.format.full_html
+    - node.type.city
+  module:
+    - text
+id: node.city.field_detailed_city_guide
+field_name: field_detailed_city_guide
+entity_type: node
+bundle: city
+label: 'Detailed City Guide'
+description: 'Provide a complete travel guide for this city.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

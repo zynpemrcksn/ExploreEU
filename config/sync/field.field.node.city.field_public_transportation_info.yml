@@ -1,0 +1,24 @@
+uuid: 7f908028-7a43-4b8b-8a1f-81aa1914b606
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_public_transportation_info
+    - filter.format.full_html
+    - node.type.city
+  module:
+    - text
+id: node.city.field_public_transportation_info
+field_name: field_public_transportation_info
+entity_type: node
+bundle: city
+label: 'Public Transportation Information'
+description: 'Describe the public transportation options available in the city, such as metro, bus, tram, train, and night transportation.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

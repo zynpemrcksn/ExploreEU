@@ -1,0 +1,23 @@
+uuid: a6ecad93-ff88-4ee9-9202-ae18c21a32f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_longitude
+    - node.type.city
+id: node.city.field_longitude
+field_name: field_longitude
+entity_type: node
+bundle: city
+label: Longitude
+description: 'Enter the longitude of the city.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

@@ -1,0 +1,24 @@
+uuid: c762f8cf-947c-4d2d-898a-e5747b0a2583
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_spring_semester_travel_rec
+    - filter.format.full_html
+    - node.type.city
+  module:
+    - text
+id: node.city.field_spring_semester_travel_rec
+field_name: field_spring_semester_travel_rec
+entity_type: node
+bundle: city
+label: 'Spring Semester Travel Recommendations'
+description: 'Provide travel recommendations for Erasmus students studying during the Spring semester (February–July).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

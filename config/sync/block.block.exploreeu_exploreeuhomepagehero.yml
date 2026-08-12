@@ -1,0 +1,28 @@
+uuid: 5692995d-57e0-4b5c-9ef5-7473a97bf786
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:df020376-3d85-4700-9250-3c2765f6f817'
+  module:
+    - block_content
+    - system
+  theme:
+    - exploreeu
+id: exploreeu_exploreeuhomepagehero
+theme: exploreeu
+region: highlighted
+weight: -6
+provider: null
+plugin: 'block_content:df020376-3d85-4700-9250-3c2765f6f817'
+settings:
+  id: 'block_content:df020376-3d85-4700-9250-3c2765f6f817'
+  label: 'ExploreEU Homepage Hero'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

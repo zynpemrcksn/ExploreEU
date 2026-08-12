@@ -1,0 +1,22 @@
+uuid: 8d5ff7fb-ce94-4795-99fb-9bc4f8fb8e55
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.experience_comment
+    - field.storage.comment.comment_body
+  module:
+    - text
+id: comment.experience_comment.comment_body
+field_name: comment_body
+entity_type: comment
+bundle: experience_comment
+label: Comment
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

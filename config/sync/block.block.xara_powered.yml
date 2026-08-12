@@ -1,0 +1,22 @@
+uuid: 5b4e8935-8829-4e82-835b-2be6f17ff8a2
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - xara
+_core:
+  default_config_hash: mEtZAiGB8Fypw43D0MJGYfT7B90x2HYkQVeWmVahufo
+id: xara_powered
+theme: xara
+region: hidden
+weight: -5
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

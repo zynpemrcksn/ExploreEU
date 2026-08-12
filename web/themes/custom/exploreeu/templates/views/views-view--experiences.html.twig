@@ -1,0 +1,51 @@
+<div class="experiences-page">
+
+  <div class="experiences-page__top">
+    <div>
+      <div class="experiences-page__eyebrow">Community stories</div>
+      <h1 class="experiences-page__title">Experiences</h1>
+      <p class="experiences-page__intro">
+        Discover real travel stories shared by our community.
+      </p>
+    </div>
+
+    {% if logged_in %}
+      <a class="experiences-page__add" href="/node/add/experience">
+        + Add Experience
+      </a>
+    {% endif %}
+  </div>
+
+  {% if header %}
+    <header>
+      {{ header }}
+    </header>
+  {% endif %}
+
+  {% if exposed %}
+    <div class="view-filters">
+      {{ exposed }}
+    </div>
+  {% endif %}
+
+  {% if rows %}
+    <div class="view-content">
+      {{ rows }}
+    </div>
+  {% elseif empty %}
+    <div class="view-empty">
+      {{ empty }}
+    </div>
+  {% endif %}
+
+  {% if pager %}
+    {{ pager }}
+  {% endif %}
+
+  {% if footer %}
+    <footer>
+      {{ footer }}
+    </footer>
+  {% endif %}
+
+</div>

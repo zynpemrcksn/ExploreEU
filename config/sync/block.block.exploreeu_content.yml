@@ -1,0 +1,22 @@
+uuid: dae5f4f1-d550-40a3-a343-face7f8f07b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - exploreeu
+_core:
+  default_config_hash: cXizNnI8OPa3DbDEBmMQzNKExQ2ZbdTnpyQH0UjeUvE
+id: exploreeu_content
+theme: exploreeu
+region: content
+weight: -4
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

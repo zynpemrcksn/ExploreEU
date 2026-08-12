@@ -1,0 +1,29 @@
+uuid: ed04ffd8-db96-422b-86dd-12f617b5cdb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.destinations
+  module:
+    - system
+    - views
+  theme:
+    - exploreeu
+id: exploreeu_views_block__destinations_block_1
+theme: exploreeu
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:destinations-block_1'
+settings:
+  id: 'views_block:destinations-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

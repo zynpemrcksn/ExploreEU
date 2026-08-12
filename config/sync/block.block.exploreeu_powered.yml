@@ -1,0 +1,22 @@
+uuid: f8700263-a1ea-48cd-b2e1-f72258fad039
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - exploreeu
+_core:
+  default_config_hash: mEtZAiGB8Fypw43D0MJGYfT7B90x2HYkQVeWmVahufo
+id: exploreeu_powered
+theme: exploreeu
+region: sidebar_first
+weight: -9
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

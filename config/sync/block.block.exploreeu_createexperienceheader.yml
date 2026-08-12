@@ -1,0 +1,28 @@
+uuid: 8b201e02-15e0-46a7-b4bd-b4e5235b1898
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:894bc380-9557-49bd-aa33-52b6210ccf79'
+  module:
+    - block_content
+    - system
+  theme:
+    - exploreeu
+id: exploreeu_createexperienceheader
+theme: exploreeu
+region: highlighted
+weight: 0
+provider: null
+plugin: 'block_content:894bc380-9557-49bd-aa33-52b6210ccf79'
+settings:
+  id: 'block_content:894bc380-9557-49bd-aa33-52b6210ccf79'
+  label: 'Create Experience Header'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /node/add/experience

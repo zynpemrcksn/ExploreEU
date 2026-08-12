@@ -1,0 +1,36 @@
+uuid: fbd698ef-015e-402b-a6a7-cfece577ed7b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_my_rating
+field_name: field_my_rating
+entity_type: node
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 1
+      label: '1 - Poor'
+    -
+      value: 2
+      label: '2 - Fair'
+    -
+      value: 3
+      label: '3 - Good'
+    -
+      value: 4
+      label: '4 - Very Good'
+    -
+      value: 5
+      label: '5 - Excellent'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

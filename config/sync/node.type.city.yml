@@ -1,0 +1,17 @@
+uuid: 6fcfedb7-4645-4fe7-8ee9-abcdaed20b24
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: City
+type: city
+description: 'Represents a city and serves as the central content type for attractions, restaurants, experiences, and other local content.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

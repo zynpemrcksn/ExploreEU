@@ -1,0 +1,8 @@
+uuid: bb0d7843-39e4-4766-a6af-4156e3f6af74
+langcode: en
+status: true
+dependencies: {  }
+id: experience_comment
+label: 'Experience Comment'
+target_entity_type_id: node
+description: 'Comments and replies posted by members on travel experiences.'

@@ -1,0 +1,21 @@
+uuid: 19913d70-8af9-4eab-95d1-400303697321
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_travel_start_date
+    - node.type.experience
+  module:
+    - datetime
+id: node.experience.field_travel_start_date
+field_name: field_travel_start_date
+entity_type: node
+bundle: experience
+label: 'Travel Start Date'
+description: 'Select the first or only day of your trip.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

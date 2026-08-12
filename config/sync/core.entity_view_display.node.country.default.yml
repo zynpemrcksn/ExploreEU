@@ -1,0 +1,41 @@
+uuid: 88190c3f-31c9-4041-8842-239d7b6c1dcc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.country.field_description
+    - field.field.node.country.field_hero_image
+    - node.type.country
+  module:
+    - image
+    - text
+    - user
+id: node.country.default
+targetEntityType: node
+bundle: country
+mode: default
+content:
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_hero_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

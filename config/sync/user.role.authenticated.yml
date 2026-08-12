@@ -1,0 +1,36 @@
+uuid: 9c6f6c59-76b4-4205-a7f5-3857f9809708
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - node.type.experience
+    - workflows.workflow.experience_moderation
+  module:
+    - comment
+    - content_moderation
+    - file
+    - filter
+    - node
+    - system
+_core:
+  default_config_hash: wkW7P5A53YhGmsgamrmTbfwpZrqdnPYiJdoAZQtdmJg
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'create experience content'
+  - 'delete own experience content'
+  - 'delete own files'
+  - 'edit own comments'
+  - 'edit own experience content'
+  - 'post comments'
+  - 'skip comment approval'
+  - 'use experience_moderation transition create_new_draft'
+  - 'use experience_moderation transition resubmit_for_review'
+  - 'use experience_moderation transition submit_for_review'
+  - 'use text format basic_html'
+  - 'view own unpublished content'

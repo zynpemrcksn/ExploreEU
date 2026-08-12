@@ -1,0 +1,27 @@
+uuid: 2210e79e-ae66-4a32-8f97-415628efedf2
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.experience_comment
+    - field.field.comment.experience_comment.comment_body
+  module:
+    - text
+id: comment.experience_comment.default
+targetEntityType: comment
+bundle: experience_comment
+mode: default
+content:
+  comment_body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

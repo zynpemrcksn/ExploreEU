@@ -1,0 +1,27 @@
+uuid: 61f2f31f-2c1e-494c-915f-54db315fa8d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - exploreeu
+_core:
+  default_config_hash: BipxijpQqOt8D2i-VyLgjDumFZ-DQb_CEeF56O-Oktw
+id: exploreeu_main_menu
+theme: exploreeu
+region: primary_menu
+weight: -7
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 5
+  expand_all_items: false
+visibility: {  }

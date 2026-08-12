@@ -1,0 +1,48 @@
+<article{{ attributes.addClass('experience-card') }}>
+
+  <div class="experience-card__image">
+    {{ content.field_experience_image }}
+  </div>
+
+  <div class="experience-card__body">
+
+    <h2 class="experience-card__title">
+      <a href="{{ url }}">{{ label }}</a>
+    </h2>
+
+    <div class="experience-card__location">
+      <span>{{ content.field_country }}</span>
+      <span class="experience-card__dot">•</span>
+      <span>{{ content.field_city }}</span>
+    </div>
+
+    <div class="experience-card__story">
+      {{ content.field_experience_story }}
+    </div>
+
+    <div class="experience-card__footer">
+
+      <div class="experience-card__meta">
+        <span class="experience-card__date">
+          {{ content.field_travel_start_date }}
+
+          {% if content.field_travel_end_date %}
+            <span class="experience-card__dash">–</span>
+            {{ content.field_travel_end_date }}
+          {% endif %}
+        </span>
+
+        <span class="experience-card__rating">
+          {{ content.field_my_rating }}
+        </span>
+      </div>
+
+      <a class="experience-card__more" href="{{ url }}">
+        Read more
+      </a>
+
+    </div>
+
+  </div>
+
+</article>

@@ -1,0 +1,24 @@
+uuid: 161e1f97-27ad-4fe3-ac5f-ddbc847e2aa2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fall_semester_travel_recom
+    - filter.format.basic_html
+    - node.type.city
+  module:
+    - text
+id: node.city.field_fall_semester_travel_recom
+field_name: field_fall_semester_travel_recom
+entity_type: node
+bundle: city
+label: 'Fall Semester Travel Recommendations'
+description: 'Provide travel recommendations for Erasmus students studying during the Fall semester (September–February).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

@@ -1,0 +1,20 @@
+uuid: 43051d38-3df9-4a4e-8d76-7c9eb2dbe28f
+langcode: en
+status: false
+dependencies:
+  theme:
+    - exploreeu
+_core:
+  default_config_hash: IaMVuQOYM1cmbz9zB2mWQ_wPiP69EnmOYJMbD8XR7V4
+id: exploreeu_page_title
+theme: exploreeu
+region: sidebar_first
+weight: -6
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

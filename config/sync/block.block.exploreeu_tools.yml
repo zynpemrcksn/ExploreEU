@@ -1,0 +1,27 @@
+uuid: 82fae51d-a074-4856-bb7a-5321c4944782
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.tools
+  module:
+    - system
+  theme:
+    - exploreeu
+_core:
+  default_config_hash: dYOqerdPFgi1x1lZt5M0i2q5PZ7GepBj_u-X5eeKElk
+id: exploreeu_tools
+theme: exploreeu
+region: sidebar_first
+weight: -8
+provider: null
+plugin: 'system_menu_block:tools'
+settings:
+  id: 'system_menu_block:tools'
+  label: Tools
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

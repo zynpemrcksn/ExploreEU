@@ -1,0 +1,23 @@
+uuid: 93d1fff1-361a-46d6-b25b-1456b1ed588b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_average_daily_budget
+    - node.type.city
+id: node.city.field_average_daily_budget
+field_name: field_average_daily_budget
+entity_type: node
+bundle: city
+label: 'Average Daily Budget'
+description: 'Enter the estimated average daily budget in Euros (€).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

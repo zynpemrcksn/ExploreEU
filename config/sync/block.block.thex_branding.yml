@@ -1,0 +1,25 @@
+uuid: 5b3af938-c025-4020-80b3-fa6e28fd8b0b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - thex
+_core:
+  default_config_hash: qRH1I1NOl311X8NaINJGmkZ36Iu2zax0r6HHN2civ0g
+id: thex_branding
+theme: thex
+region: hidden
+weight: -4
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

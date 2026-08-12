@@ -1,0 +1,21 @@
+uuid: 63e8fe69-24f1-41fe-85e3-286218c04c72
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_travel_end_date
+    - node.type.experience
+  module:
+    - datetime
+id: node.experience.field_travel_end_date
+field_name: field_travel_end_date
+entity_type: node
+bundle: experience
+label: 'Travel End Date'
+description: 'Optional. Select the last day if your trip lasted more than one day.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

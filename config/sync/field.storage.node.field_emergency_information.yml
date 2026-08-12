@@ -1,0 +1,19 @@
+uuid: afee3fb9-f70a-4beb-882a-8661245e4bed
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_emergency_information
+field_name: field_emergency_information
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

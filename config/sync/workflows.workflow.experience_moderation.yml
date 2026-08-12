@@ -1,0 +1,80 @@
+uuid: 3a44fb35-8c8e-4368-8430-777464338b70
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.experience
+  module:
+    - content_moderation
+id: experience_moderation
+label: 'Experience Moderation'
+type: content_moderation
+type_settings:
+  states:
+    archived:
+      label: Archived
+      weight: 4
+      published: false
+      default_revision: false
+    draft:
+      label: Draft
+      weight: 0
+      published: false
+      default_revision: false
+    needs_correction:
+      label: 'Needs correction'
+      weight: 3
+      published: false
+      default_revision: false
+    published:
+      label: Published
+      weight: 1
+      published: true
+      default_revision: true
+    review:
+      label: Review
+      weight: 2
+      published: false
+      default_revision: false
+  transitions:
+    archive:
+      label: Archive
+      from:
+        - published
+      to: archived
+      weight: 5
+    create_new_draft:
+      label: 'Create New Draft'
+      from:
+        - draft
+        - published
+      to: draft
+      weight: 0
+    publish:
+      label: Publish
+      from:
+        - review
+      to: published
+      weight: 1
+    request_changes:
+      label: 'Request changes'
+      from:
+        - review
+      to: needs_correction
+      weight: 3
+    resubmit_for_review:
+      label: 'Resubmit for review'
+      from:
+        - needs_correction
+      to: review
+      weight: 4
+    submit_for_review:
+      label: 'Submit for review'
+      from:
+        - draft
+      to: review
+      weight: 2
+  entity_types:
+    node:
+      - experience
+  default_moderation_state: draft

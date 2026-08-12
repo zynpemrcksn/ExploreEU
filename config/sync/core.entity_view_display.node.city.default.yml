@@ -1,0 +1,202 @@
+uuid: 2f5ec77c-3643-41b4-a2a9-27a06b13af95
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.city.field_atm_payment_information
+    - field.field.node.city.field_average_daily_budget
+    - field.field.node.city.field_city_hero_image
+    - field.field.node.city.field_country
+    - field.field.node.city.field_detailed_city_guide
+    - field.field.node.city.field_emergency_information
+    - field.field.node.city.field_fall_semester_travel_recom
+    - field.field.node.city.field_internet_sim_information
+    - field.field.node.city.field_latitude
+    - field.field.node.city.field_longitude
+    - field.field.node.city.field_maximum_recommended_stay
+    - field.field.node.city.field_minimum_recommended_stay
+    - field.field.node.city.field_photo_gallery
+    - field.field.node.city.field_public_transportation_info
+    - field.field.node.city.field_safety_score
+    - field.field.node.city.field_short_description
+    - field.field.node.city.field_spring_semester_travel_rec
+    - field.field.node.city.field_student_friendly_score
+    - field.field.node.city.field_transportation_tips
+    - node.type.city
+  module:
+    - image
+    - text
+    - user
+id: node.city.default
+targetEntityType: node
+bundle: city
+mode: default
+content:
+  field_atm_payment_information:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  field_average_daily_budget:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_city_hero_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_country:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_detailed_city_guide:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_emergency_information:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 119
+    region: content
+  field_fall_semester_travel_recom:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_internet_sim_information:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  field_latitude:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_longitude:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_maximum_recommended_stay:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_minimum_recommended_stay:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_photo_gallery:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 120
+    region: content
+  field_public_transportation_info:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  field_safety_score:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_short_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_spring_semester_travel_rec:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_student_friendly_score:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_transportation_tips:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

@@ -1,0 +1,107 @@
+uuid: 4df58266-1359-4855-ba16-3e1df445a393
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.experience_comment.default
+    - core.entity_view_mode.node.full
+    - field.field.node.experience.field_city
+    - field.field.node.experience.field_comments
+    - field.field.node.experience.field_country
+    - field.field.node.experience.field_experience_image
+    - field.field.node.experience.field_experience_story
+    - field.field.node.experience.field_my_rating
+    - field.field.node.experience.field_travel_end_date
+    - field.field.node.experience.field_travel_start_date
+    - node.type.experience
+  module:
+    - comment
+    - datetime
+    - image
+    - layout_builder
+    - options
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.experience.full
+targetEntityType: node
+bundle: experience
+mode: full
+content:
+  field_city:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_comments:
+    type: comment_default
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_country:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_experience_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_experience_story:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_my_rating:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_travel_end_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_travel_start_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

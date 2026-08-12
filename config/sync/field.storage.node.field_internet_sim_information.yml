@@ -1,0 +1,19 @@
+uuid: 69d02dd1-c8fd-4554-a18d-d108588614f7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_internet_sim_information
+field_name: field_internet_sim_information
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

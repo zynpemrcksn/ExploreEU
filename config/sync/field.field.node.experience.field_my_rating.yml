@@ -1,0 +1,21 @@
+uuid: 5f491434-babe-44b8-8e54-6547b01891a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_my_rating
+    - node.type.experience
+  module:
+    - options
+id: node.experience.field_my_rating
+field_name: field_my_rating
+entity_type: node
+bundle: experience
+label: 'My Rating'
+description: 'Rate your overall travel experience from 1 to 5.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

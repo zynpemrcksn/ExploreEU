@@ -1,0 +1,28 @@
+uuid: 8fc4151a-154f-489f-8820-cc81b43cdf09
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:3b9f7b44-bfd0-4c24-b78f-084ee925c366'
+  module:
+    - block_content
+    - system
+  theme:
+    - exploreeu
+id: exploreeu_homepageintro
+theme: exploreeu
+region: content
+weight: -2
+provider: null
+plugin: 'block_content:3b9f7b44-bfd0-4c24-b78f-084ee925c366'
+settings:
+  id: 'block_content:3b9f7b44-bfd0-4c24-b78f-084ee925c366'
+  label: 'Homepage Intro'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

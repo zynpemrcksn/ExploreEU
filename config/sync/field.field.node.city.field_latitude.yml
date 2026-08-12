@@ -1,0 +1,23 @@
+uuid: 9edcaf73-38c3-4082-bab6-fb91858b73ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_latitude
+    - node.type.city
+id: node.city.field_latitude
+field_name: field_latitude
+entity_type: node
+bundle: city
+label: Latitude
+description: 'Enter the latitude of the city.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

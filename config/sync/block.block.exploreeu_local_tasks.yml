@@ -1,0 +1,22 @@
+uuid: 6417b9ad-f756-42c1-a7ef-8991f8c9d5fe
+langcode: en
+status: true
+dependencies:
+  theme:
+    - exploreeu
+_core:
+  default_config_hash: tVkso4A7dn2kAz-tzylL3cHjWLactLiIBgi6XfZu4EI
+id: exploreeu_local_tasks
+theme: exploreeu
+region: content
+weight: -7
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }
