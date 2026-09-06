@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function exploreeu_trip_planner_theme($existing, $type, $theme, $path): array {
+  return [
+    'trip_planner' => [
+      'variables' => [],
+      'template' => 'trip-planner',
+    ],
+  ];
+}
+
+

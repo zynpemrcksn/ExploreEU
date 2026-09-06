@@ -1,0 +1,125 @@
+{#
+/**
+ * @file
+ * Travel Tip full detail page.
+ */
+#}
+
+<article{{ attributes.addClass('travel-tip-detail') }}>
+
+  {# =========================
+     HEADER
+     ========================= #}
+  <header class="travel-tip-detail__header">
+
+    <div class="travel-tip-detail__eyebrow">
+        TRAVEL GUIDE
+    </div>
+
+
+    <h1 class="travel-tip-detail__title">
+      {{ label }}
+    </h1>
+
+    {% if content.field_category %}
+      <div class="travel-tip-detail__category-pill">
+        {{ content.field_category }}
+      </div>
+    {% endif %}
+
+    {% if content.addtoany is defined %}
+      <div class="travel-tip-detail__share">
+        {{ content.addtoany }}
+      </div>
+    {% endif %}
+
+    <div class="travel-tip-detail__divider"></div>
+
+  </header>
+
+
+  {# =========================
+     CONTENT
+     ========================= #}
+  <div class="travel-tip-detail__layout">
+
+    <main class="travel-tip-detail__main">
+
+
+      {% if node.field_short_summary.value %}
+        <div class="travel-tip-detail__summary">
+          {{ node.field_short_summary.value }}
+        </div>
+      {% endif %}
+
+
+      {% if node.field_tip_content.value %}
+        <div class="travel-tip-detail__article">
+          {{ node.field_tip_content.value|raw }}
+        </div>
+      {% endif %}
+
+    </main>
+
+
+    {# =========================
+       SIDEBAR
+       ========================= #}
+    <aside class="travel-tip-detail__aside">
+
+      {% if content.field_cover_image %}
+        <div class="travel-tip-detail__cover">
+          {{ content.field_cover_image }}
+        </div>
+      {% endif %}
+
+
+      <div class="travel-tip-detail__info-card">
+
+        <div class="travel-tip-detail__info-row">
+
+          <span class="travel-tip-detail__info-icon">
+            ✦
+          </span>
+
+          <div>
+            <span class="travel-tip-detail__info-label">
+              CATEGORY
+            </span>
+
+            <div class="travel-tip-detail__info-value">
+              {{ content.field_category }}
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="travel-tip-detail__info-divider"></div>
+
+
+        <div class="travel-tip-detail__info-row">
+
+          <span class="travel-tip-detail__info-icon">
+            ✓
+          </span>
+
+          <div>
+            <span class="travel-tip-detail__info-label">
+              QUICK TIP
+            </span>
+
+            <div class="travel-tip-detail__info-value">
+              Save this guide before your trip.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+  </div>
+
+</article>

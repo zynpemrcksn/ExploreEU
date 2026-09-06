@@ -1,0 +1,30 @@
+<article{{ attributes.addClass('node', 'node-type-calendar-event', 'node-view-mode-' ~ view_mode) }}>
+
+  {{ title_prefix }}
+
+  {% if label %}
+    <h1 class="calendar-event-title">
+      {{ label }}
+    </h1>
+  {% endif %}
+
+  {{ title_suffix }}
+
+  <header class="node-header">
+    {{ content|without(
+      'field_event_type',
+      'field_event_location',
+      'field_event_notes',
+      'field_event_dates',
+      'links'
+    ) }}
+  </header>
+
+  <div class="node-content">
+    {{ content.field_event_type }}
+    {{ content.field_event_location }}
+    {{ content.field_event_notes }}
+    {{ content.field_event_dates }}
+  </div>
+
+</article>

@@ -1,0 +1,59 @@
+{#
+/**
+ * @file
+ * ExploreEU Travel Tips page.
+ */
+#}
+
+<div class="travel-tips-page">
+
+  <header class="travel-tips-hero">
+
+    <div class="travel-tips-hero__eyebrow">
+      TRAVEL SMARTER
+    </div>
+
+    <h1 class="travel-tips-hero__title">
+      Travel Tips
+    </h1>
+
+    <p class="travel-tips-hero__description">
+      Practical guides, useful advice, and smart ideas
+      to help you make the most of your travels across Europe.
+    </p>
+
+  </header>
+
+  <div class="travel-tips-divider"></div>
+
+  <section class="travel-tips-content">
+
+    <div class="travel-tips-content__heading">
+      <div>
+        <span class="travel-tips-content__eyebrow">
+          EXPLORE OUR GUIDES
+        </span>
+
+        <h2>Plan better. Travel smarter.</h2>
+      </div>
+    </div>
+
+    {% if rows %}
+      <div class="travel-tips-grid">
+        {{ rows }}
+      </div>
+    {% elseif empty %}
+      <div class="travel-tips-empty">
+        {{ empty }}
+      </div>
+    {% endif %}
+
+    {% if pager %}
+      <div class="travel-tips-pager">
+        {{ pager }}
+      </div>
+    {% endif %}
+
+  </section>
+
+</div>

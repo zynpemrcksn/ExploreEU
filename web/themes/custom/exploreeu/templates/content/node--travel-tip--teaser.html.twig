@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Travel Tip teaser card.
+ */
+#}
+
+<article{{ attributes.addClass('travel-tip-card') }}>
+
+  {% if content.field_cover_image %}
+    <a href="{{ url }}" class="travel-tip-card__image">
+      {{ content.field_cover_image }}
+    </a>
+  {% endif %}
+
+  <div class="travel-tip-card__body">
+
+    {% if content.field_category %}
+      <div class="travel-tip-card__category">
+        {{ content.field_category }}
+      </div>
+    {% endif %}
+
+    <h2 class="travel-tip-card__title">
+      <a href="{{ url }}">
+        {{ label }}
+      </a>
+    </h2>
+
+    {% if content.field_short_summary %}
+      <div class="travel-tip-card__summary">
+        {{ content.field_short_summary }}
+      </div>
+    {% endif %}
+
+    <a href="{{ url }}" class="travel-tip-card__link">
+      Read guide <span aria-hidden="true">→</span>
+    </a>
+
+  </div>
+
+</article>

@@ -1,0 +1,5 @@
+name: ExploreEU Chatbot
+type: module
+description: Gemini powered travel assistant for ExploreEU.
+package: Custom
+core_version_requirement: ^11

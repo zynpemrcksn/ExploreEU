@@ -1,0 +1,301 @@
+<article{{ attributes.addClass('city-detail-page') }}>
+
+  {# HERO #}
+  <section class="city-detail-hero">
+
+    {% if node.field_city_hero_image.entity %}
+      <div class="city-detail-hero-image">
+        {{ content.field_city_hero_image }}
+      </div>
+    {% endif %}
+
+    <div class="city-detail-hero-overlay"></div>
+
+    <div class="city-detail-hero-content">
+
+      {% if node.field_country.entity %}
+        <div class="city-detail-country">
+          {{ node.field_country.entity.label }}
+        </div>
+      {% endif %}
+
+      <h1>{{ label }}</h1>
+
+      {% if node.field_short_description.value %}
+        <div class="city-detail-intro">
+          {{ node.field_short_description.value|raw }}
+        </div>
+      {% endif %}
+
+    </div>
+
+  </section>
+
+
+  {# QUICK STATS #}
+  <section class="city-detail-stats">
+
+    {% if node.field_average_daily_budget.value %}
+      <div class="city-stat">
+        <span class="city-stat-icon">💶</span>
+
+        <div>
+          <strong>
+            {{ node.field_average_daily_budget.value|number_format(0) }}
+          </strong>
+          <span>Daily Budget</span>
+        </div>
+      </div>
+    {% endif %}
+
+
+    {% if node.field_student_friendly_score.value %}
+      <div class="city-stat">
+        <span class="city-stat-icon">⭐</span>
+
+        <div>
+          <strong>
+            {{ node.field_student_friendly_score.value }}/5
+          </strong>
+          <span>Student Friendly</span>
+        </div>
+      </div>
+    {% endif %}
+
+
+    {% if node.field_safety_score.value %}
+      <div class="city-stat">
+        <span class="city-stat-icon">🛡️</span>
+
+        <div>
+          <strong>
+            {{ node.field_safety_score.value }}/5
+          </strong>
+          <span>Safety Score</span>
+        </div>
+      </div>
+    {% endif %}
+
+
+    {% if node.field_minimum_recommended_stay.value
+      and node.field_maximum_recommended_stay.value %}
+
+      <div class="city-stat">
+        <span class="city-stat-icon">🛏️</span>
+
+        <div>
+          <strong>
+            {{ node.field_minimum_recommended_stay.value }}
+            –
+            {{ node.field_maximum_recommended_stay.value }} days
+          </strong>
+          <span>Recommended Stay</span>
+        </div>
+      </div>
+
+    {% endif %}
+
+  </section>
+
+
+  {# MAIN CONTENT #}
+
+  {% set has_sidebar =
+    node.field_internet_sim_information.value
+    or node.field_atm_payment_information.value
+    or node.field_emergency_information.value
+  %}
+
+  <div class="city-detail-container{{ has_sidebar ? ' has-sidebar' : ' no-sidebar' }}">
+
+    <main class="city-detail-main">
+
+
+      {# ABOUT #}
+      {% if node.field_detailed_city_guide.value %}
+
+        <section class="city-detail-section">
+
+          <div class="city-section-heading">
+            <span>📍</span>
+            <h2>About {{ label }}</h2>
+          </div>
+
+          <div class="city-section-body">
+            {{ node.field_detailed_city_guide.value|raw }}
+          </div>
+
+        </section>
+
+      {% endif %}
+
+
+      {# TRANSPORTATION #}
+      {% if node.field_public_transportation_info.value
+        or node.field_transportation_tips.value %}
+
+        <section class="city-detail-section">
+
+          <div class="city-section-heading">
+            <span>🚇</span>
+            <h2>Transportation</h2>
+          </div>
+
+          <div class="city-section-body">
+
+            {% if node.field_public_transportation_info.value %}
+              {{ node.field_public_transportation_info.value|raw }}
+            {% endif %}
+
+
+            {% if node.field_transportation_tips.value %}
+              <div class="city-info-note">
+                {{ node.field_transportation_tips.value|raw }}
+              </div>
+            {% endif %}
+
+          </div>
+
+        </section>
+
+      {% endif %}
+
+
+      {# SEMESTER GUIDE #}
+      {% if node.field_fall_semester_travel_recom.value
+        or node.field_spring_semester_travel_rec.value %}
+
+        <section class="city-detail-section">
+
+          <div class="city-section-heading">
+            <span>🎓</span>
+            <h2>Semester Travel Guide</h2>
+          </div>
+
+          <div class="city-semester-grid">
+
+
+            {% if node.field_fall_semester_travel_recom.value %}
+
+              <div class="city-semester-card">
+
+                <h3>🍂 Fall Semester</h3>
+
+                {{ node.field_fall_semester_travel_recom.value|raw }}
+
+              </div>
+
+            {% endif %}
+
+
+            {% if node.field_spring_semester_travel_rec.value %}
+
+              <div class="city-semester-card">
+
+                <h3>🌸 Spring Semester</h3>
+
+                {{ node.field_spring_semester_travel_rec.value|raw }}
+
+              </div>
+
+            {% endif %}
+
+
+          </div>
+
+        </section>
+
+      {% endif %}
+
+    </main>
+
+
+    {# SIDEBAR #}
+    {% if node.field_internet_sim_information.value
+      or node.field_atm_payment_information.value
+      or node.field_emergency_information.value %}
+
+      <aside class="city-detail-sidebar">
+
+        <div class="city-sidebar-card">
+
+          <h3>Travel Information</h3>
+
+
+          {% if node.field_internet_sim_information.value %}
+
+            <div class="city-sidebar-item">
+
+              <span>📱</span>
+
+              <div>
+                <strong>Internet & SIM</strong>
+
+                {{ node.field_internet_sim_information.value|raw }}
+              </div>
+
+            </div>
+
+          {% endif %}
+
+
+          {% if node.field_atm_payment_information.value %}
+
+            <div class="city-sidebar-item">
+
+              <span>💳</span>
+
+              <div>
+                <strong>ATM & Payments</strong>
+
+                {{ node.field_atm_payment_information.value|raw }}
+              </div>
+
+            </div>
+
+          {% endif %}
+
+
+          {% if node.field_emergency_information.value %}
+
+            <div class="city-sidebar-item">
+
+              <span>🚨</span>
+
+              <div>
+                <strong>Emergency</strong>
+
+                {{ node.field_emergency_information.value|raw }}
+              </div>
+
+            </div>
+
+          {% endif %}
+
+        </div>
+
+      </aside>
+
+    {% endif %}
+
+  </div>
+
+
+  {# PHOTO GALLERY #}
+  {% if not node.field_photo_gallery.isEmpty %}
+
+    <section class="city-detail-gallery">
+
+      <div class="city-detail-gallery-inner">
+
+        <h2>Explore {{ label }}</h2>
+
+        {{ content.field_photo_gallery }}
+
+      </div>
+
+    </section>
+
+  {% endif %}
+
+</article>

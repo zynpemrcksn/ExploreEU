@@ -7,6 +7,7 @@ global-styling:
 
   js:
     js/exploreeu.js: {}
+    js/toast-messages.js: {}
 
   dependencies:
     - core/drupal

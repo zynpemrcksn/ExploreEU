@@ -1,0 +1,5 @@
+name: ExploreEU Trip Planner
+type: module
+description: 'Step-by-step European trip planning experience for ExploreEU.'
+package: ExploreEU
+core_version_requirement: ^11

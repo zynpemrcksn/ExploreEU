@@ -1,0 +1,63 @@
+exploreeu_trip_planner.page:
+  path: '/plan-your-trip'
+  defaults:
+    _controller: '\Drupal\exploreeu_trip_planner\Controller\TripPlannerController::page'
+    _title: 'Plan Your Trip'
+  requirements:
+    _permission: 'access content'
+
+exploreeu_trip_planner.weather:
+  path: '/plan-your-trip/weather'
+  defaults:
+    _controller: '\Drupal\exploreeu_trip_planner\Controller\TripPlannerController::weather'
+  requirements:
+    _permission: 'access content'
+  methods: [GET]
+
+exploreeu_trip_planner.flights:
+  path: '/plan-your-trip/flights'
+  defaults:
+    _controller: '\Drupal\exploreeu_trip_planner\Controller\TripPlannerController::flights'
+  requirements:
+    _permission: 'access content'
+  methods: [GET]
+
+exploreeu_trip_planner.trains:
+  path: '/plan-your-trip/trains'
+  defaults:
+    _controller: '\Drupal\exploreeu_trip_planner\Controller\TripPlannerController::trains'
+  requirements:
+    _permission: 'access content'
+  methods: [GET]
+
+exploreeu_trip_planner.buses:
+  path: '/plan-your-trip/buses'
+  defaults:
+    _controller: '\Drupal\exploreeu_trip_planner\Controller\TripPlannerController::buses'
+  requirements:
+    _permission: 'access content'
+  methods: [GET]
+
+exploreeu_trip_planner.hotels:
+  path: '/plan-your-trip/hotels'
+  defaults:
+    _controller: '\Drupal\exploreeu_trip_planner\Controller\TripPlannerController::hotels'
+  requirements:
+    _permission: 'access content'
+  methods: [GET]
+
+exploreeu_trip_planner.add_to_calendar:
+  path: '/plan-your-trip/add-to-calendar'
+  defaults:
+    _controller: '\Drupal\exploreeu_trip_planner\Controller\TripPlannerController::addToCalendar'
+  requirements:
+    _permission: 'access content'
+  methods: [POST]
+
+exploreeu_trip_planner.calendar_add_event:
+  path: '/calendar/add-event'
+  defaults:
+    _form: '\Drupal\exploreeu_trip_planner\Form\CalendarEventForm'
+    _title: 'Add Event'
+  requirements:
+    _permission: 'access content'

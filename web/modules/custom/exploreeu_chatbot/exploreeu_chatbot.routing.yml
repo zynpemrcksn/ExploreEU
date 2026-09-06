@@ -1,0 +1,7 @@
+exploreeu_chatbot.chat:
+  path: '/api/exploreeu-chatbot'
+  defaults:
+    _controller: '\Drupal\exploreeu_chatbot\Controller\ChatbotController::chat'
+  requirements:
+    _permission: 'access content'
+  methods: [POST]

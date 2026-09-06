@@ -39,6 +39,12 @@
         </div>
       {% endif %}
 
+      {% if content.addtoany is defined %}
+        <div class="experience-detail__share">
+          {{ content.addtoany }}
+        </div>
+      {% endif %}
+
     </div>
 
     <div
@@ -155,6 +161,24 @@
             <strong>{{ rating }}/5</strong>
 
           </div>
+
+          {% if experience_view_count is defined %}
+            <div class="experience-info-card__divider"></div>
+
+            <div class="experience-info-card__views">
+
+              <div class="experience-info-card__heading">
+                PAGE VIEWS
+              </div>
+
+              <div class="experience-info-card__views-value">
+                <span class="experience-info-card__views-icon">👁</span>
+                <strong>{{ experience_view_count }}</strong>
+              </div>
+
+            </div>
+
+          {% endif %}
 
         </div>
 

@@ -1,0 +1,88 @@
+<article class="exploreeu-profile">
+
+  <div class="exploreeu-profile__header">
+
+    <div class="exploreeu-profile__avatar">
+      {% if content.user_picture %}
+        {{ content.user_picture }}
+      {% else %}
+        <div class="exploreeu-profile__avatar-placeholder">
+          👤
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="exploreeu-profile__info">
+      <span class="exploreeu-profile__label">
+        ExploreEU Member
+      </span>
+
+      <h1 class="exploreeu-profile__name">
+        {{ user.label }}
+      </h1>
+
+      <p class="exploreeu-profile__welcome">
+        Manage your ExploreEU account and travel activity.
+      </p>
+    </div>
+
+    <div class="exploreeu-profile__header-actions">
+      <a
+        href="{{ path('entity.user.edit_form', {'user': user.id}) }}"
+        class="exploreeu-profile__edit"
+      >
+        Edit profile
+      </a>
+    </div>
+
+  </div>
+
+  <div class="exploreeu-profile__grid">
+
+    <div class="exploreeu-profile__card">
+      <span class="exploreeu-profile__card-label">
+        Membership
+      </span>
+
+      <div class="exploreeu-profile__card-content">
+        {{ content|without('user_picture') }}
+      </div>
+    </div>
+
+    <a
+      href="/calendar"
+      class="exploreeu-profile__card exploreeu-profile__card--link"
+    >
+      <span class="exploreeu-profile__card-label">
+        My Calendar
+      </span>
+
+      <strong>
+        View your travel calendar
+      </strong>
+
+      <span class="exploreeu-profile__card-arrow">
+        →
+      </span>
+    </a>
+
+    <a
+      href="{{ path('entity.user.edit_form', {'user': user.id}) }}"
+      class="exploreeu-profile__card exploreeu-profile__card--link"
+    >
+      <span class="exploreeu-profile__card-label">
+        Account Settings
+      </span>
+
+      <strong>
+        Update your profile
+      </strong>
+
+      <span class="exploreeu-profile__card-arrow">
+        →
+      </span>
+    </a>
+
+  </div>
+
+</article>

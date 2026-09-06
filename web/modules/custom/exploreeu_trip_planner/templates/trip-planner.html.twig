@@ -1,0 +1,742 @@
+<section class="trip-planner">
+
+  <header class="trip-planner__hero">
+    <span class="trip-planner__eyebrow">
+      PLAN YOUR JOURNEY
+    </span>
+
+    <h1>
+      Plan Your Trip
+    </h1>
+
+    <p>
+      Build your European journey step by step — choose your destination,
+      travel dates, transport and accommodation.
+    </p>
+  </header>
+
+
+  <div class="trip-planner__workspace">
+
+    {# ======================================================
+       LEFT COLUMN
+       Steps + active planner card
+       ====================================================== #}
+    <div class="trip-planner__workspace-main">
+
+
+      {# =========================
+         STEPS
+         ========================= #}
+      <div class="trip-planner__steps">
+
+        <div class="trip-planner__step is-active">
+          <span>1</span>
+          <strong>Destination & Dates</strong>
+        </div>
+
+        <div class="trip-planner__step">
+          <span>2</span>
+          <strong>Weather</strong>
+        </div>
+
+        <div class="trip-planner__step">
+          <span>3</span>
+          <strong>Transport</strong>
+        </div>
+
+        <div class="trip-planner__step">
+          <span>4</span>
+          <strong>Stay</strong>
+        </div>
+
+        <div class="trip-planner__step">
+          <span>5</span>
+          <strong>Summary</strong>
+        </div>
+
+      </div>
+
+
+      {# ======================================================
+         STEP 1
+         DESTINATION & DATES
+         ====================================================== #}
+      <section
+        class="trip-planner__panel"
+        id="trip-step-one"
+      >
+
+        <div class="trip-planner__panel-heading">
+          <span>STEP 1</span>
+
+          <h2>
+            Where and when?
+          </h2>
+
+          <p>
+            Choose your trip type and build your route.
+          </p>
+        </div>
+     
+        {# =====================================================
+           TRIP TYPE
+           ===================================================== #}
+
+        <div class="trip-planner__trip-types">
+
+          <label class="trip-planner__trip-type is-active">
+            <input
+              type="radio"
+              name="trip-type"
+              value="one-way"
+              checked
+            >
+
+            <span>
+              <strong>One way</strong>
+              <small>
+                Travel to one or more destinations.
+              </small>
+            </span>
+          </label>
+
+
+          <label class="trip-planner__trip-type">
+            <input
+              type="radio"
+              name="trip-type"
+              value="round-trip"
+            >
+
+            <span>
+              <strong>Round trip</strong>
+              <small>
+                Start and finish in the same city.
+              </small>
+            </span>
+          </label>
+
+
+          <label class="trip-planner__trip-type">
+            <input
+              type="radio"
+              name="trip-type"
+              value="multi-city"
+            >
+
+            <span>
+              <strong>Multi-city</strong>
+              <small>
+                Build a journey across several cities.
+              </small>
+            </span>
+          </label>
+
+        </div>
+
+
+        {# =====================================================
+           ROUTES
+           JS daha sonra buraya yeni leg'ler ekleyecek.
+           ===================================================== #}
+
+        <div
+          class="trip-planner__routes"
+          id="trip-routes"
+        >
+
+          <article
+            class="trip-planner__route-row"
+            data-leg-index="0"
+          >
+
+            <div class="trip-planner__route-heading">
+
+              <div>
+                <span>
+                  ROUTE 1
+                </span>
+
+                <strong>
+                  First journey
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div class="trip-planner__route-fields">
+
+              <div class="trip-planner__field">
+
+                <label for="trip-origin">
+                  From
+                </label>
+
+                <input
+                  type="text"
+                  id="trip-origin"
+                  class="trip-planner__leg-origin"
+                  placeholder="e.g. Bydgoszcz"
+                  autocomplete="off"
+                >
+
+              </div>
+
+
+              <div class="trip-planner__route-arrow">
+                →
+              </div>
+
+
+              <div class="trip-planner__field">
+
+                <label for="trip-destination">
+                  To
+                </label>
+
+                <input
+                  type="text"
+                  id="trip-destination"
+                  class="trip-planner__leg-destination"
+                  placeholder="e.g. Gdańsk"
+                  autocomplete="off"
+                > 
+
+              </div>
+
+
+              <div class="trip-planner__field">
+
+                <label for="trip-start-date">
+                  Travel date
+                </label>
+
+                <input
+                  type="date"
+                  id="trip-start-date"
+                  class="trip-planner__leg-date"
+                >
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+
+        {# =====================================================
+           ADD ROUTE
+           One-way / multi-city / round-trip hepsi aynı leg
+           sistemini kullanacak.
+           ===================================================== #}
+
+        <div class="trip-planner__route-actions">
+
+          <button
+            type="button"
+            id="trip-add-route"
+            class="trip-planner__button-secondary"
+          >
+            + Add another stop
+          </button>
+
+        </div>
+
+
+        {# =====================================================
+           OVERALL TRIP DETAILS
+           ===================================================== #}
+
+        <div class="trip-planner__form trip-planner__form--trip-details">
+
+          <div class="trip-planner__field">
+
+            <label for="trip-end-date">
+              Trip end date
+            </label>
+
+            <input
+              type="date"
+              id="trip-end-date"
+            >
+
+          </div>
+
+
+          <div class="trip-planner__field">
+
+            <label for="trip-travellers">
+              Travellers
+            </label>
+
+            <select id="trip-travellers">
+              <option value="1">1 traveller</option>
+              <option value="2">2 travellers</option>
+              <option value="3">3 travellers</option>
+              <option value="4">4 travellers</option>
+              <option value="5">5 travellers</option>
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <div class="trip-planner__actions">
+
+          <button
+            type="button"
+            id="trip-planner-continue"
+          >
+            Continue to weather →
+          </button>
+
+        </div>
+
+      </section>
+
+
+      {# ======================================================
+         STEP 2
+         WEATHER
+         ====================================================== #}
+      <section
+        class="trip-planner__panel trip-planner__weather"
+        id="trip-weather-panel"
+        hidden
+      >
+
+        <div class="trip-planner__panel-heading">
+          <span>STEP 2</span>
+
+          <h2>
+            Check the weather
+          </h2>
+
+          <p>
+            Weather information for your selected destination and travel dates.
+          </p>
+        </div>
+
+
+        <div class="trip-planner__weather-summary">
+
+          <div>
+            <span class="trip-planner__weather-label">
+              DESTINATION
+            </span>
+
+            <strong id="weather-destination">
+              —
+            </strong>
+          </div>
+
+
+          <div>
+            <span class="trip-planner__weather-label">
+              TRAVEL DATES
+            </span>
+
+            <strong id="weather-dates">
+              —
+            </strong>
+          </div>
+
+
+          <div>
+            <span class="trip-planner__weather-label">
+              TRIP LENGTH
+            </span>
+
+            <strong id="weather-duration">
+              —
+            </strong>
+          </div>
+
+        </div>
+
+
+        <div class="trip-planner__weather-placeholder">
+
+          <div class="trip-planner__weather-icon">
+            ☀
+          </div>
+
+          <div>
+            <h3>
+              Weather forecast
+            </h3>
+
+            <p>
+              Your weather forecast will appear here.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="trip-planner__actions trip-planner__actions--between">
+
+          <button
+            type="button"
+            id="trip-planner-back"
+            class="trip-planner__button-secondary"
+          >
+            ← Back
+          </button>
+
+          <button
+            type="button"
+            id="trip-planner-transport"
+          >
+            Continue to transport →
+          </button>
+
+        </div>
+
+      </section>
+
+      {# ======================================================
+         STEP 3
+         TRANSPORT
+         ====================================================== #}
+      <section
+        class="trip-planner__panel trip-planner__transport"
+        id="trip-transport-panel"
+        hidden
+      >
+
+        <div class="trip-planner__panel-heading">
+          <span>STEP 3</span>
+
+          <h2>
+            Choose your transport
+          </h2>
+
+          <p>
+            Choose how you want to travel for each part of your journey.
+          </p>
+        </div>
+ 
+        {# ======================================================
+           TRANSPORT ROUTES
+
+           JavaScript creates one transport card for every trip leg.
+           ====================================================== #}
+
+        <div
+          class="trip-planner__transport-legs"
+          id="trip-transport-legs"
+        >
+        </div>
+
+        {# Development helper.
+           JS sadece development mode aktifken bunu gösterecek. #}
+
+        <div
+          class="trip-planner__dev-tools"
+          id="trip-dev-tools"
+          hidden
+        >
+
+          <span class="trip-planner__dev-badge">
+            DEVELOPMENT MODE
+          </span>
+
+          <button
+            type="button"
+            id="trip-dev-skip-transport"
+            class="trip-planner__button-secondary"
+          >
+            Skip transport and open Stay →
+          </button>
+
+        </div>
+
+
+        <div class="trip-planner__actions trip-planner__actions--between">
+
+          <button
+            type="button"
+            id="trip-transport-back"
+            class="trip-planner__button-secondary"
+          >
+            ← Back to weather
+          </button>
+
+          <button
+            type="button"
+            id="trip-planner-stay"
+          >
+            Continue to stay →
+          </button>
+
+        </div>
+
+      </section>
+
+      {# ======================================================
+         STEP 4
+         STAY
+         ====================================================== #}
+
+      <section
+        class="trip-planner__panel"
+        id="trip-stay-panel"
+        hidden
+      >
+
+        <div class="trip-planner__section-heading">
+
+          <span class="trip-planner__section-eyebrow">
+            STEP 4
+          </span>
+
+          <h2>
+            Choose your stay
+          </h2>
+
+          <p>
+            Find accommodation for each destination in your trip.
+          </p>
+
+        </div>
+
+
+        <div
+          class="trip-planner__stay-destinations"
+          id="trip-stay-destinations"
+        >
+        </div>
+
+
+        <div class="trip-planner__actions trip-planner__actions--between">
+
+          <button
+            type="button"
+            id="trip-stay-back"
+            class="trip-planner__button-secondary"
+          >
+            ← Back to transport
+          </button>
+
+          <button
+            type="button"
+            id="trip-stay-continue"
+          >
+            Continue →
+          </button>
+
+        </div>
+
+      </section>
+      {# ======================================================
+         STEP 5
+         SUMMARY
+         ====================================================== #}
+
+      <section
+        class="trip-planner__panel"
+        id="trip-summary-panel"
+        hidden
+      >
+
+        <div class="trip-planner__section-heading">
+
+          <span class="trip-planner__section-eyebrow">
+            STEP 5
+          </span>
+
+          <h2>
+            Your trip summary
+          </h2>
+
+          <p>
+            Review your complete itinerary before adding it to your calendar.
+          </p>
+
+        </div>
+
+
+        <div
+          class="trip-planner__summary"
+          id="trip-summary"
+        >
+        </div>
+
+        <div class="trip-planner__actions trip-planner__actions--between">
+
+          <button
+            type="button"
+            id="trip-summary-back"
+            class="trip-planner__button-secondary"
+          >
+            ← Back to stay
+          </button>
+
+          <button
+            type="button"
+            id="trip-summary-calendar"
+          >
+            📅 Add to calendar
+          </button>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    {# ======================================================
+       RIGHT COLUMN
+       TRIP OVERVIEW
+       ====================================================== #}
+    <aside
+      class="trip-planner__overview"
+      id="trip-overview"
+      hidden
+    >
+
+      <span class="trip-planner__overview-eyebrow">
+        YOUR TRIP
+      </span>
+
+      <h3>
+        Trip overview
+      </h3>
+
+
+      <div class="trip-planner__overview-row">
+
+        <span>📍</span>
+
+        <div>
+          <small>
+            Destination
+          </small>
+
+          <strong id="overview-destination">
+            —
+          </strong>
+        </div>
+
+      </div>
+
+
+      <div class="trip-planner__overview-divider"></div>
+
+
+      <div class="trip-planner__overview-row">
+
+        <span>📅</span>
+
+        <div>
+          <small>
+            Travel dates
+          </small>
+
+          <strong id="overview-dates">
+            —
+          </strong>
+        </div>
+
+      </div>
+
+
+      <div class="trip-planner__overview-divider"></div>
+
+
+      <div class="trip-planner__overview-row">
+
+        <span>👤</span>
+
+        <div>
+          <small>
+            Travellers
+          </small>
+
+          <strong id="overview-travellers">
+            —
+          </strong>
+        </div>
+
+      </div>
+
+
+      <div class="trip-planner__overview-divider"></div>
+
+      <div class="trip-planner__overview-row">
+
+        <span>🌦</span>
+
+        <div>
+          <small>
+            Weather
+          </small>
+
+          <strong id="overview-weather">
+            Waiting for forecast
+          </strong>
+        </div>
+
+      </div>
+
+      <div class="trip-planner__overview-divider"></div>
+
+
+      <div class="trip-planner__overview-row">
+
+        <span>✈</span>
+
+        <div>
+          <small>
+            Transport
+          </small>
+
+          <div
+            class="trip-planner__overview-transport-list"
+            id="overview-transport"
+          >
+            <strong>
+              Not selected
+            </strong>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="trip-planner__overview-divider"></div>
+
+
+      <div class="trip-planner__overview-row">
+
+        <span>🏨</span>
+
+        <div>
+          <small>
+            Stay
+          </small>
+
+          <div
+            class="trip-planner__overview-stay-list"
+            id="overview-stay"
+          >
+            <strong>
+              Not selected
+            </strong>
+          </div>
+        </div>
+
+      </div>
+
+    </aside>
+
+  </div>
+
+</section>

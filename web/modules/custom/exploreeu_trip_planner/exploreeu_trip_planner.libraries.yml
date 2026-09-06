@@ -1,0 +1,10 @@
+trip_planner:
+  css:
+    theme:
+      css/trip-planner.css: {}
+  js:
+    js/trip-planner.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+

@@ -1,0 +1,116 @@
+{#
+/**
+ * Contact page
+ */
+#}
+
+<article{{ attributes.addClass('contact-page') }}>
+
+  {{ title_prefix }}
+  {{ title_suffix }}
+
+  <section class="contact-page__hero">
+
+    <div class="contact-page__eyebrow">
+      Contact ExploreEU
+    </div>
+
+    <h1 class="contact-page__title">
+      We'd love to hear from you
+    </h1>
+
+    <p class="contact-page__lead">
+      Have a question, suggestion, or feedback about ExploreEU?
+      Get in touch and we'll be happy to help.
+    </p>
+
+  </section>
+
+
+  <section class="contact-page__content">
+
+    <div class="contact-page__info">
+
+      <div class="contact-page__section-label">
+        Get in touch
+      </div>
+
+      <h2>
+        How can we help?
+      </h2>
+
+      <p>
+        Whether you have a question about planning your journey,
+        want to share feedback, or simply want to say hello,
+        feel free to contact us.
+      </p>
+
+
+      <div class="contact-page__info-cards">
+
+        <div class="contact-page__info-card">
+          <div class="contact-page__info-icon">✉️</div>
+
+          <div>
+            <h3>Email us</h3>
+            <p>For general questions and support.</p>
+            <a href="mailto:hello@exploreeu.com">
+              hello@exploreeu.com
+            </a>
+          </div>
+        </div>
+
+
+        <div class="contact-page__info-card">
+          <div class="contact-page__info-icon">💬</div>
+
+          <div>
+            <h3>Feedback</h3>
+            <p>
+              Have an idea that could make ExploreEU better?
+              We'd love to hear it.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="contact-page__info-card">
+          <div class="contact-page__info-icon">🌍</div>
+
+          <div>
+            <h3>Explore together</h3>
+            <p>
+              ExploreEU is built for students and young travelers
+              discovering Europe.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="contact-page__form-card">
+
+      <div class="contact-page__section-label">
+        Send a message
+      </div>
+
+      <h2>
+        Contact us
+      </h2>
+
+      <p class="contact-page__form-intro">
+        Fill out the form below and we'll get back to you as soon as possible.
+      </p>
+
+      <div class="contact-page__form">
+          {{ contact_webform }}
+      </div>
+
+    </div>
+
+  </section>
+
+</article>

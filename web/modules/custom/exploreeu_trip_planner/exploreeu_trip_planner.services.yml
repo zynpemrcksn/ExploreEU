@@ -1,0 +1,14 @@
+services:
+  exploreeu_trip_planner.weather:
+    class: Drupal\exploreeu_trip_planner\Service\WeatherService
+    arguments: ['@http_client_factory']
+
+
+  exploreeu_trip_planner.transport:
+    class: Drupal\exploreeu_trip_planner\Service\TransportService
+    arguments: ['@http_client_factory']
+
+
+  exploreeu_trip_planner.stay:
+    class: Drupal\exploreeu_trip_planner\Service\StayService
+    arguments: ['@http_client_factory']

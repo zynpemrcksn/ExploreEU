@@ -1,0 +1,57 @@
+<article{{ attributes.addClass('destination-card') }}>
+
+  {% if content.field_city_hero_image %}
+    <div class="destination-image">
+      {{ content.field_city_hero_image }}
+    </div>
+  {% endif %}
+
+  <div class="destination-content">
+
+    <h3>
+      <a href="{{ url }}">{{ label }}</a>
+    </h3>
+
+    {% if node.field_country.entity %}
+      <div class="country">
+        {{ node.field_country.entity.label }}
+      </div>
+    {% endif %}
+
+    {% if node.field_short_description.value %}
+      <div class="description">
+        {{ node.field_short_description.value|raw }}
+      </div>
+    {% endif %}
+
+    <div class="meta">
+
+      {% if node.field_average_daily_budget.value %}
+        <div>
+          💶 {{ node.field_average_daily_budget.value }} per day
+        </div>
+      {% endif %}
+
+      {% if node.field_student_friendly_score.value %}
+        <div>
+          ⭐ {{ node.field_student_friendly_score.value }}/5
+        </div>
+      {% endif %}
+
+      {% if node.field_minimum_recommended_stay.value and node.field_maximum_recommended_stay.value %}
+        <div>
+          🛏 {{ node.field_minimum_recommended_stay.value }}
+          -
+          {{ node.field_maximum_recommended_stay.value }} days
+        </div>
+      {% endif %}
+
+    </div>
+
+    <div class="destination-button">
+      <a href="{{ url }}">View Details</a>
+    </div>
+
+  </div>
+
+</article>

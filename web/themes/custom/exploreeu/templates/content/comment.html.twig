@@ -1,0 +1,37 @@
+<article{{ attributes.addClass('experience-comment') }}>
+
+  <div class="experience-comment__header">
+
+    <div class="experience-comment__avatar">
+      {% if author_picture %}
+        {{ author_picture }}
+      {% else %}
+        <div class="experience-comment__avatar-placeholder">
+          👤
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="experience-comment__meta">
+      <div class="experience-comment__author">
+        {{ author }}
+      </div>
+
+      <div class="experience-comment__date">
+        {{ created }}
+      </div>
+    </div>
+
+  </div>
+
+  <div class="experience-comment__body">
+    {{ content|without('links') }}
+  </div>
+
+  {% if content.links %}
+    <div class="experience-comment__actions">
+      {{ content.links }}
+    </div>
+  {% endif %}
+
+</article>
