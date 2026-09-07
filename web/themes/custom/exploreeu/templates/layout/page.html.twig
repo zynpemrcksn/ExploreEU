@@ -1,0 +1,46 @@
+{% include '@xara/template-parts/header.html.twig' %}
+{% if page.highlighted %}
+  {% include '@thex/template-parts/highlighted.html.twig' %}
+{% endif %}
+<div class="main-wrapper">
+  <div class="container">
+
+    {% if city_experiences is not empty %}
+      <aside class="city-experiences-sidebar">
+        <h3>Experiences in {{ current_city_title }}</h3>
+
+        <ul class="city-experiences-list">
+          {% for experience in city_experiences %}
+            <li>
+              <a href="{{ experience.url }}">
+                {{ experience.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </aside>
+    {% endif %}
+
+    <div class="main-container">
+      <main id="main" class="main-content">
+        <a id="main-content" tabindex="-1"></a>
+        {% if page.content_top %}
+          {% include '@thex/template-parts/content-parts/content_top.html.twig' %}
+        {% endif %}
+        <div class="node-content">
+          {{ page.content }}
+        </div>
+        {% if page.content_bottom %}
+          {% include '@thex/template-parts/content-parts/content_bottom.html.twig' %}
+        {% endif %}
+      </main>
+    {% if page.sidebar_first %}
+      {% include '@thex/template-parts/sidebar/sidebar_left.html.twig' %}
+    {% endif %}
+    {% if page.sidebar_second %}
+      {% include '@thex/template-parts/sidebar/sidebar_right.html.twig' %}
+    {% endif %}
+    </div><!--/main-container -->
+  </div><!--/container -->
+</div><!--/main-wrapper -->
+{% include '@xara/template-parts/footer.html.twig' %}

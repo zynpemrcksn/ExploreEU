@@ -97,6 +97,23 @@
 
   </section>
 
+  {# EXPERIENCES - LAPTOP / TABLET / MOBILE #}
+  {% if city_experiences is not empty %}
+    <aside class="city-experiences-responsive">
+      <h3>Experiences in {{ label }}</h3>
+
+      <ul class="city-experiences-list">
+        {% for experience in city_experiences %}
+          <li>
+            <a href="{{ experience.url }}">
+              {{ experience.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </aside>
+  {% endif %}
+
 
   {# MAIN CONTENT #}
 

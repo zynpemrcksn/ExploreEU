@@ -272,6 +272,43 @@ function exploreeu_preprocess_breadcrumb(array &$variables): void {
     ],
   ];
 }
+
+/**
+ * Loads experiences related to a city.
+ */
+function exploreeu_get_city_experiences(\Drupal\node\NodeInterface $node): array {
+  static $cache = [];
+
+  $nid = (int) $node->id();
+
+  if (isset($cache[$nid])) {
+    return $cache[$nid];
+  }
+
+  $experience_ids = \Drupal::entityQuery('node')
+    ->condition('type', 'experience')
+    ->condition('status', 1)
+    ->condition('field_city.target_id', $nid)
+    ->accessCheck(TRUE)
+    ->sort('created', 'DESC')
+    ->execute();
+
+  $cache[$nid] = [];
+
+  if (!empty($experience_ids)) {
+    $experiences = \Drupal\node\Entity\Node::loadMultiple($experience_ids);
+
+    foreach ($experiences as $experience) {
+      $cache[$nid][] = [
+        'title' => $experience->label(),
+        'url' => $experience->toUrl()->toString(),
+      ];
+    }
+  }
+
+  return $cache[$nid];
+}
+
 /**
  * Implements hook_preprocess_node().
  */
@@ -303,6 +340,29 @@ function exploreeu_preprocess_node(array &$variables): void {
 
     $variables['experience_view_count'] = $result ?: 0;
   }
+
+  // City detail page: load related experiences.
+  if ($node->bundle() === 'city' && ($variables['view_mode'] ?? '') === 'full') {
+    $variables['city_experiences'] = exploreeu_get_city_experiences($node);
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function exploreeu_preprocess_page(array &$variables): void {
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if (!$node instanceof \Drupal\node\NodeInterface) {
+    return;
+  }
+
+  if ($node->bundle() !== 'city') {
+    return;
+  }
+
+  $variables['city_experiences'] = exploreeu_get_city_experiences($node);
+  $variables['current_city_title'] = $node->label();
 }
 
 /**
