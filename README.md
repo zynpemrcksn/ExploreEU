@@ -182,9 +182,9 @@ Community üyelik sistemi, Join/Leave işlemleri, Community Events ve takvim ent
 
 ![Plan Your Trip](docs/screenshots/plan-your-trip.png)
 
-### Trip Planning
+### Weather
 
-![Plan Your Trip](docs/screenshots/plan-your-trip-1.png)
+![Weather Information](docs/screenshots/plan-your-trip-weather.png)
 
 ### Transportation
 
@@ -194,11 +194,9 @@ Community üyelik sistemi, Join/Leave işlemleri, Community Events ve takvim ent
 
 ### Stay
 
-![Stay Selection](docs/screenshots/plan-your-trip-stay-2.png)
+![Stay Selection](docs/screenshots/plan-your-trip-1.png)
 
-### Weather
-
-![Weather Information](docs/screenshots/plan-your-trip-weather.png)
+![Stay Selection Details](docs/screenshots/plan-your-trip-stay-2.png)
 
 ### Trip Summary
 
