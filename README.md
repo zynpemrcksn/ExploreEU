@@ -182,6 +182,26 @@ Community üyelik sistemi, Join/Leave işlemleri, Community Events ve takvim ent
 
 ![Plan Your Trip](docs/screenshots/plan-your-trip.png)
 
+### Trip Planning
+
+![Plan Your Trip](docs/screenshots/plan-your-trip-1.png)
+
+### Transportation
+
+![Transportation Selection](docs/screenshots/plan-your-trip-transport-1.png)
+
+![Transportation Details](docs/screenshots/plan-your-trip-transport-2.png)
+
+### Stay
+
+![Stay Selection](docs/screenshots/plan-your-trip-stay-2.png)
+
+### Weather
+
+![Weather Information](docs/screenshots/plan-your-trip-weather.png)
+
+### Trip Summary
+
 ![Trip Summary](docs/screenshots/plan-your-trip-summary.png)
 
 ## 📅 Calendar
