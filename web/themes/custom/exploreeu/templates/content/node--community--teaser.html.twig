@@ -1,0 +1,62 @@
+{% set city = node.field_city.entity %}
+{% set city_name = city ? city.label : '' %}
+{% set community_image = node.field_community_image.entity %}
+{% set community_image_alt = node.field_community_image.alt|default(label) %}
+{% set description = node.field_community_description.value|striptags %}
+
+<article{{ attributes.addClass('community-list-card') }}>
+
+  {% if community_image %}
+    <a href="{{ url }}" class="community-list-card__image">
+      <img
+        src="{{ file_url(community_image.fileuri) }}"
+        alt="{{ community_image_alt }}"
+      >
+    </a>
+  {% endif %}
+
+  <div class="community-list-card__content">
+
+    <h2 class="community-list-card__title">
+      <a href="{{ url }}">
+        {{ label }}
+      </a>
+    </h2>
+
+    {% if city %}
+      <div class="community-list-card__meta">
+        <span class="community-list-card__tag">
+          {{ city_name }}
+        </span>
+
+        <span class="community-list-card__type">
+          Student Community
+        </span>
+      </div>
+    {% endif %}
+
+    <div class="community-list-card__description">
+      {% if description|length > 180 %}
+        {{ description|slice(0, 180) ~ '…' }}
+      {% else %}
+        {{ description }}
+      {% endif %}
+    </div>
+
+    <div class="community-list-card__footer">
+
+      <span class="community-list-card__location">
+        {% if city %}
+          Community in {{ city_name }}
+        {% endif %}
+      </span>
+
+      <a href="{{ url }}" class="community-list-card__button">
+        View Community
+      </a>
+
+    </div>
+
+  </div>
+
+</article>

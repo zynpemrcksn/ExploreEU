@@ -97,33 +97,127 @@
 
   </section>
 
-  {# EXPERIENCES - LAPTOP / TABLET / MOBILE #}
-  {% if city_experiences is not empty %}
-    <aside class="city-experiences-responsive">
-      <h3>Experiences in {{ label }}</h3>
 
-      <ul class="city-experiences-list">
-        {% for experience in city_experiences %}
-          <li>
-            <a href="{{ experience.url }}">
-              {{ experience.title }}
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    </aside>
+  {# EXPERIENCES + COMMUNITY - LAPTOP / TABLET / MOBILE #}
+  {% if city_experiences is not empty or city_community %}
+
+    <div class="city-responsive-sidebars">
+
+      {# EXPERIENCES #}
+      {% if city_experiences is not empty %}
+
+        <aside class="city-experiences-responsive">
+
+          <div class="city-experiences-sidebar__eyebrow">
+            Experiences
+          </div>
+
+          <h3>
+            Experiences in {{ label }}
+          </h3>
+
+          <ul class="city-experiences-list">
+
+            {% for experience in city_experiences %}
+
+              <li>
+                <a href="{{ experience.url }}">
+                  {{ experience.title }}
+                </a>
+              </li>
+
+            {% endfor %}
+
+          </ul>
+
+        </aside>
+
+      {% endif %}
+
+
+      {# COMMUNITY #}
+      {% if city_community %}
+
+        <aside class="city-community-responsive">
+
+          <div class="city-community-sidebar__eyebrow">
+            Community
+          </div>
+
+          <h3>
+            Connect in {{ label }}
+          </h3>
+
+          <p class="city-community-sidebar__text">
+            Meet students and travelers in {{ label }}.
+          </p>
+
+          <a
+            href="{{ city_community.url }}"
+            class="city-community-sidebar__link"
+          >
+
+            <strong>
+              {{ city_community.title }}
+            </strong>
+
+            <span>
+              View Community →
+            </span>
+
+          </a>
+
+
+          {% if city_community_events is not empty %}
+
+            <div class="city-community-sidebar__events">
+
+              <div class="city-community-sidebar__events-title">
+                Upcoming Events
+              </div>
+
+              {% for event in city_community_events %}
+
+                <a
+                  href="{{ event.url }}"
+                  class="city-community-sidebar__event"
+                >
+
+                  <strong>
+                    {{ event.title }}
+                  </strong>
+
+                  {% if event.start_date %}
+                    <span>
+                      📅 {{ event.start_date|date('d M Y') }}
+                    </span>
+                  {% endif %}
+
+                  {% if event.location %}
+                    <span>
+                      📍 {{ event.location }}
+                    </span>
+                  {% endif %}
+
+                </a>
+
+              {% endfor %}
+
+            </div>
+
+          {% endif %}
+
+        </aside>
+
+      {% endif %}
+
+    </div>
+
   {% endif %}
 
 
   {# MAIN CONTENT #}
-
-  {% set has_sidebar =
-    node.field_internet_sim_information.value
-    or node.field_atm_payment_information.value
-    or node.field_emergency_information.value
-  %}
-
-  <div class="city-detail-container{{ has_sidebar ? ' has-sidebar' : ' no-sidebar' }}">
+  <div class="city-detail-container">
 
     <main class="city-detail-main">
 
@@ -164,11 +258,96 @@
               {{ node.field_public_transportation_info.value|raw }}
             {% endif %}
 
-
             {% if node.field_transportation_tips.value %}
+
               <div class="city-info-note">
                 {{ node.field_transportation_tips.value|raw }}
               </div>
+
+            {% endif %}
+
+          </div>
+
+        </section>
+
+      {% endif %}
+
+
+      {# TRAVEL INFORMATION #}
+      {% if node.field_internet_sim_information.value
+        or node.field_atm_payment_information.value
+        or node.field_emergency_information.value %}
+
+        <section class="city-detail-section">
+
+          <div class="city-section-heading">
+            <span>🧳</span>
+            <h2>Travel Information</h2>
+          </div>
+
+          <div class="city-travel-info-grid">
+
+
+            {% if node.field_internet_sim_information.value %}
+
+              <div class="city-travel-info-card">
+
+                <div class="city-travel-info-card__icon">
+                  📱
+                </div>
+
+                <div class="city-travel-info-card__content">
+
+                  <h3>Internet & SIM</h3>
+
+                  {{ node.field_internet_sim_information.value|raw }}
+
+                </div>
+
+              </div>
+
+            {% endif %}
+
+
+            {% if node.field_atm_payment_information.value %}
+
+              <div class="city-travel-info-card">
+
+                <div class="city-travel-info-card__icon">
+                  💳
+                </div>
+
+                <div class="city-travel-info-card__content">
+
+                  <h3>ATM & Payments</h3>
+
+                  {{ node.field_atm_payment_information.value|raw }}
+
+                </div>
+
+              </div>
+
+            {% endif %}
+
+
+            {% if node.field_emergency_information.value %}
+
+              <div class="city-travel-info-card">
+
+                <div class="city-travel-info-card__icon">
+                  🚨
+                </div>
+
+                <div class="city-travel-info-card__content">
+
+                  <h3>Emergency</h3>
+
+                  {{ node.field_emergency_information.value|raw }}
+
+                </div>
+
+              </div>
+
             {% endif %}
 
           </div>
@@ -217,7 +396,6 @@
 
             {% endif %}
 
-
           </div>
 
         </section>
@@ -225,75 +403,6 @@
       {% endif %}
 
     </main>
-
-
-    {# SIDEBAR #}
-    {% if node.field_internet_sim_information.value
-      or node.field_atm_payment_information.value
-      or node.field_emergency_information.value %}
-
-      <aside class="city-detail-sidebar">
-
-        <div class="city-sidebar-card">
-
-          <h3>Travel Information</h3>
-
-
-          {% if node.field_internet_sim_information.value %}
-
-            <div class="city-sidebar-item">
-
-              <span>📱</span>
-
-              <div>
-                <strong>Internet & SIM</strong>
-
-                {{ node.field_internet_sim_information.value|raw }}
-              </div>
-
-            </div>
-
-          {% endif %}
-
-
-          {% if node.field_atm_payment_information.value %}
-
-            <div class="city-sidebar-item">
-
-              <span>💳</span>
-
-              <div>
-                <strong>ATM & Payments</strong>
-
-                {{ node.field_atm_payment_information.value|raw }}
-              </div>
-
-            </div>
-
-          {% endif %}
-
-
-          {% if node.field_emergency_information.value %}
-
-            <div class="city-sidebar-item">
-
-              <span>🚨</span>
-
-              <div>
-                <strong>Emergency</strong>
-
-                {{ node.field_emergency_information.value|raw }}
-              </div>
-
-            </div>
-
-          {% endif %}
-
-        </div>
-
-      </aside>
-
-    {% endif %}
 
   </div>
 
@@ -305,7 +414,9 @@
 
       <div class="city-detail-gallery-inner">
 
-        <h2>Explore {{ label }}</h2>
+        <h2>
+          Explore {{ label }}
+        </h2>
 
         {{ content.field_photo_gallery }}
 

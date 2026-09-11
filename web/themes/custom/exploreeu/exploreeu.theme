@@ -310,6 +310,142 @@ function exploreeu_get_city_experiences(\Drupal\node\NodeInterface $node): array
 }
 
 /**
+ * Loads community related to a city.
+ */
+function exploreeu_get_city_community(\Drupal\node\NodeInterface $node): ?array {
+  static $cache = [];
+
+  $nid = (int) $node->id();
+
+  if (array_key_exists($nid, $cache)) {
+    return $cache[$nid];
+  }
+
+  $community_ids = \Drupal::entityQuery('node')
+    ->condition('type', 'community')
+    ->condition('status', 1)
+    ->condition('field_city.target_id', $nid)
+    ->accessCheck(TRUE)
+    ->sort('created', 'DESC')
+    ->range(0, 1)
+    ->execute();
+
+  $cache[$nid] = NULL;
+
+  if (!empty($community_ids)) {
+    $community_id = reset($community_ids);
+    $community = \Drupal\node\Entity\Node::load($community_id);
+
+    if ($community) {
+      $cache[$nid] = [
+        'title' => $community->label(),
+        'url' => $community->toUrl()->toString(),
+      ];
+    }
+  }
+
+  return $cache[$nid];
+}
+
+/**
+ * Loads events related to a community.
+ */
+function exploreeu_get_community_events(\Drupal\node\NodeInterface $node): array {
+  static $cache = [];
+
+  $nid = (int) $node->id();
+
+  if (isset($cache[$nid])) {
+    return $cache[$nid];
+  }
+
+  $event_ids = \Drupal::entityQuery('node')
+    ->condition('type', 'community_event')
+    ->condition('status', 1)
+    ->condition('field_community.target_id', $nid)
+    ->accessCheck(TRUE)
+    ->sort('field_event_dates.value', 'ASC')
+    ->execute();
+
+  $cache[$nid] = [];
+
+  if (!empty($event_ids)) {
+    $events = \Drupal\node\Entity\Node::loadMultiple($event_ids);
+
+    foreach ($events as $event) {
+      $cache[$nid][] = [
+        'title' => $event->label(),
+        'url' => $event->toUrl()->toString(),
+        'start_date' => $event->get('field_event_dates')->value,
+        'end_date' => $event->get('field_event_dates')->end_value,
+        'location' => $event->get('field_event_location')->value,
+      ];
+    }
+  }
+
+  return $cache[$nid];
+}
+
+/**
+ * Loads upcoming community events related to a city.
+ */
+function exploreeu_get_city_community_events(\Drupal\node\NodeInterface $node): array {
+  static $cache = [];
+
+  $city_nid = (int) $node->id();
+
+  if (isset($cache[$city_nid])) {
+    return $cache[$city_nid];
+  }
+
+  $cache[$city_nid] = [];
+
+  // Find the community related to this city.
+  $community_ids = \Drupal::entityQuery('node')
+    ->condition('type', 'community')
+    ->condition('status', 1)
+    ->condition('field_city.target_id', $city_nid)
+    ->accessCheck(TRUE)
+    ->sort('created', 'DESC')
+    ->range(0, 1)
+    ->execute();
+
+  if (empty($community_ids)) {
+    return $cache[$city_nid];
+  }
+
+  $community_nid = (int) reset($community_ids);
+
+  // Load the nearest upcoming events for this community.
+  $event_ids = \Drupal::entityQuery('node')
+    ->condition('type', 'community_event')
+    ->condition('status', 1)
+    ->condition('field_community.target_id', $community_nid)
+    ->condition('field_event_dates.end_value', gmdate('Y-m-d\TH:i:s'), '>=')
+    ->accessCheck(TRUE)
+    ->sort('field_event_dates.value', 'ASC')
+    ->range(0, 3)
+    ->execute();
+
+  if (empty($event_ids)) {
+    return $cache[$city_nid];
+  }
+
+  $events = \Drupal\node\Entity\Node::loadMultiple($event_ids);
+
+  foreach ($events as $event) {
+    $cache[$city_nid][] = [
+      'title' => $event->label(),
+      'url' => $event->toUrl()->toString(),
+      'start_date' => $event->get('field_event_dates')->value,
+      'location' => $event->get('field_event_location')->value,
+    ];
+  }
+
+  return $cache[$city_nid];
+}
+
+/**
  * Implements hook_preprocess_node().
  */
 function exploreeu_preprocess_node(array &$variables): void {
@@ -341,9 +477,40 @@ function exploreeu_preprocess_node(array &$variables): void {
     $variables['experience_view_count'] = $result ?: 0;
   }
 
-  // City detail page: load related experiences.
+  // City detail page: load related experiences and community.
   if ($node->bundle() === 'city' && ($variables['view_mode'] ?? '') === 'full') {
     $variables['city_experiences'] = exploreeu_get_city_experiences($node);
+    $variables['city_community'] = exploreeu_get_city_community($node);
+  }
+
+  // Community detail page: load related events and membership status.
+  if ($node->bundle() === 'community' && ($variables['view_mode'] ?? '') === 'full') {
+    $variables['elements']['#cache']['max-age'] = 0;
+    $variables['community_events'] = exploreeu_get_community_events($node);
+    $variables['community_event_count'] = count($variables['community_events']);
+
+    $variables['community_member_count'] = (int) \Drupal::database()
+      ->select('exploreeu_community_membership', 'm')
+      ->condition('community_nid', (int) $node->id())
+      ->countQuery()
+      ->execute()
+      ->fetchField();
+
+    $variables['is_community_member'] = FALSE;
+
+    $current_user = \Drupal::currentUser();
+
+    if ($current_user->isAuthenticated()) {
+      $membership_id = \Drupal::database()
+        ->select('exploreeu_community_membership', 'm')
+        ->fields('m', ['id'])
+        ->condition('uid', (int) $current_user->id())
+        ->condition('community_nid', (int) $node->id())
+        ->execute()
+        ->fetchField();
+
+      $variables['is_community_member'] = (bool) $membership_id;
+    }
   }
 }
 
@@ -351,6 +518,27 @@ function exploreeu_preprocess_node(array &$variables): void {
  * Implements hook_preprocess_page().
  */
 function exploreeu_preprocess_page(array &$variables): void {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+
+  // Experiences listing page.
+  if ($route_name === 'view.experiences.page_1') {
+    $variables['is_experiences_page'] = TRUE;
+
+    $variables['experience_city_filter'] = [
+      'All' => 'All Cities',
+      '1' => 'Amsterdam',
+      '2' => 'Barcelona',
+      '3' => 'Berlin',
+      '4' => 'Paris',
+      '5' => 'Prague',
+      '6' => 'Rome',
+    ];
+
+    $variables['experience_selected_city'] =
+      \Drupal::request()->query->get('field_city_target_id', 'All');
+  }
+
+  // City detail pages.
   $node = \Drupal::routeMatch()->getParameter('node');
 
   if (!$node instanceof \Drupal\node\NodeInterface) {
@@ -362,9 +550,10 @@ function exploreeu_preprocess_page(array &$variables): void {
   }
 
   $variables['city_experiences'] = exploreeu_get_city_experiences($node);
+  $variables['city_community'] = exploreeu_get_city_community($node);
   $variables['current_city_title'] = $node->label();
+  $variables['city_community_events'] = exploreeu_get_city_community_events($node);
 }
-
 /**
  * Implements hook_theme_suggestions_node_alter().
  */

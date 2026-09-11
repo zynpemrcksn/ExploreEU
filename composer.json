@@ -24,9 +24,11 @@
         "drupal/core-recipe-unpack": "^11.4",
         "drupal/core-recommended": "^11.4",
         "drupal/fullcalendar": "^4.0@RC",
+        "drupal/pathauto": "^1.15",
         "drupal/recaptcha": "^3.4",
         "drupal/statistics": "^1.0",
         "drupal/thex": "^11.0",
+        "drupal/token": "^1.17",
         "drupal/webform": "^6.3",
         "drupal/xara": "^11.0",
         "drush/drush": "^13.7"

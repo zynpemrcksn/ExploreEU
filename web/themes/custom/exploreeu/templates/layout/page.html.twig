@@ -1,46 +1,199 @@
 {% include '@xara/template-parts/header.html.twig' %}
+
 {% if page.highlighted %}
   {% include '@thex/template-parts/highlighted.html.twig' %}
 {% endif %}
+
 <div class="main-wrapper">
   <div class="container">
 
+    {# EXPERIENCES FILTER - LEFT #}
+    {% if is_experiences_page %}
+
+      <aside class="experiences-filter-sidebar">
+
+        <div class="experiences-filter-sidebar__eyebrow">
+          Filter Experiences
+        </div>
+
+        <h3>
+          Find Experiences
+        </h3>
+
+        <p class="experiences-filter-sidebar__text">
+          Explore travel stories by city.
+        </p>
+
+        <form method="get" action="/experiences" class="experiences-filter-sidebar__form">
+
+          <label for="experiences-city-filter">
+            City
+          </label>
+
+          <select
+            id="experiences-city-filter"
+            name="field_city_target_id"
+          >
+            {% for value, label in experience_city_filter %}
+              <option
+                value="{{ value }}"
+                {% if experience_selected_city == value %}selected{% endif %}
+              >
+                {{ label }}
+              </option>
+            {% endfor %}
+          </select>
+
+          <button type="submit">
+            Apply Filter
+          </button>
+
+        </form>
+
+      </aside>
+
+    {% endif %}
+
+    {# CITY EXPERIENCES - LEFT #}
     {% if city_experiences is not empty %}
+
       <aside class="city-experiences-sidebar">
-        <h3>Experiences in {{ current_city_title }}</h3>
+
+        <div class="city-experiences-sidebar__eyebrow">
+          Experiences
+        </div>
+
+        <h3>
+          Experiences in {{ current_city_title }}
+        </h3>
 
         <ul class="city-experiences-list">
+
           {% for experience in city_experiences %}
+
             <li>
               <a href="{{ experience.url }}">
                 {{ experience.title }}
               </a>
             </li>
+
           {% endfor %}
+
         </ul>
+
       </aside>
+
     {% endif %}
 
+
+    {# CITY COMMUNITY - RIGHT #}
+    {% if city_community %}
+
+      <aside class="city-community-sidebar">
+
+        <div class="city-community-sidebar__eyebrow">
+          Community
+        </div>
+
+        <h3>
+          Connect in {{ current_city_title }}
+        </h3>
+
+        <p class="city-community-sidebar__text">
+          Meet students and travelers in {{ current_city_title }}.
+        </p>
+
+        <a
+          href="{{ city_community.url }}"
+          class="city-community-sidebar__link"
+        >
+
+          <strong>
+            {{ city_community.title }}
+          </strong>
+
+          <span>
+            View Community →
+          </span>
+
+        </a>
+
+        {% if city_community_events is not empty %}
+
+          <div class="city-community-sidebar__events">
+
+            <div class="city-community-sidebar__events-title">
+              Upcoming Events
+            </div>
+
+            {% for event in city_community_events %}
+
+              <a href="{{ event.url }}"
+                class="city-community-sidebar__event">
+
+                <strong>
+                  {{ event.title }}
+                </strong>
+
+                {% if event.start_date %}
+                  <span>
+                    📅 {{ event.start_date|date('d M Y') }}
+                  </span>
+                {% endif %}
+
+                {% if event.location %}
+                  <span>
+                    📍 {{ event.location }}
+                  </span>
+                {% endif %}
+
+              </a>
+
+            {% endfor %}
+
+          </div>
+
+        {% endif %}
+
+      </aside>
+
+    {% endif %}
+
+
     <div class="main-container">
+
       <main id="main" class="main-content">
+
         <a id="main-content" tabindex="-1"></a>
+
         {% if page.content_top %}
           {% include '@thex/template-parts/content-parts/content_top.html.twig' %}
         {% endif %}
+
         <div class="node-content">
           {{ page.content }}
         </div>
+
         {% if page.content_bottom %}
           {% include '@thex/template-parts/content-parts/content_bottom.html.twig' %}
         {% endif %}
+
       </main>
-    {% if page.sidebar_first %}
-      {% include '@thex/template-parts/sidebar/sidebar_left.html.twig' %}
-    {% endif %}
-    {% if page.sidebar_second %}
-      {% include '@thex/template-parts/sidebar/sidebar_right.html.twig' %}
-    {% endif %}
+
+
+      {% if page.sidebar_first %}
+        {% include '@thex/template-parts/sidebar/sidebar_left.html.twig' %}
+      {% endif %}
+
+
+      {% if page.sidebar_second %}
+        {% include '@thex/template-parts/sidebar/sidebar_right.html.twig' %}
+      {% endif %}
+
+
     </div><!--/main-container -->
+
   </div><!--/container -->
 </div><!--/main-wrapper -->
+
 {% include '@xara/template-parts/footer.html.twig' %}

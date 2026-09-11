@@ -1,0 +1,34 @@
+exploreeu_community.add_to_calendar:
+  path: '/community-event/{node}/add-to-calendar'
+  defaults:
+    _controller: '\Drupal\exploreeu_community\Controller\CommunityEventController::addToCalendar'
+  requirements:
+    _permission: 'access content'
+    node: '\d+'
+  methods: [POST]
+
+exploreeu_community.join:
+  path: '/community/{community}/join'
+  defaults:
+    _form: '\Drupal\exploreeu_community\Form\CommunityJoinForm'
+    _title: 'Join Community'
+  requirements:
+    _permission: 'access content'
+    community: '\d+'
+  options:
+    parameters:
+      community:
+        type: entity:node
+
+exploreeu_community.leave:
+  path: '/community/{community}/leave'
+  defaults:
+    _form: '\Drupal\exploreeu_community\Form\CommunityLeaveForm'
+    _title: 'Leave Community'
+  requirements:
+    _permission: 'access content'
+    community: '\d+'
+  options:
+    parameters:
+      community:
+        type: entity:node

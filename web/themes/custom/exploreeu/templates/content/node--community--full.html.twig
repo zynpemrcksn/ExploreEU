@@ -1,0 +1,251 @@
+{#
+/**
+ * Community - Full content
+ */
+#}
+
+{{ attach_library('core/drupal.dialog.ajax') }}
+
+{% set city = node.field_city.entity %}
+{% set city_name = city ? city.label : '' %}
+
+{% set community_image = node.field_community_image.entity %}
+{% set community_image_alt = node.field_community_image.alt|default(label) %}
+
+<article{{ attributes.addClass('community-detail') }}>
+
+  {{ title_prefix }}
+  {{ title_suffix }}
+
+  <section class="community-hero">
+
+    <div class="community-hero__content">
+
+      <div class="community-detail__eyebrow">
+        ExploreEU Community
+      </div>
+
+      <h1 class="community-detail__title">
+        {{ label }}
+      </h1>
+
+      {% if city %}
+        <div class="community-detail__city">
+          Community in
+          <a href="{{ path('entity.node.canonical', {'node': city.id}) }}">
+            {{ city_name }}
+          </a>
+        </div>
+      {% endif %}
+
+      <div class="community-hero__actions">
+
+        <div id="community-membership-action">
+          {% if is_community_member %}
+
+            <a
+              href="{{ path('exploreeu_community.leave', {'community': node.id}) }}"
+              class="community-join-button community-join-button--joined use-ajax"
+              data-dialog-type="modal"
+              data-dialog-options='{"width": 520}'
+            >
+              ✓ Joined · Leave
+            </a>
+
+          {% else %}
+
+            <a
+              href="{{ path('exploreeu_community.join', {'community': node.id}) }}"
+              class="community-join-button use-ajax"
+              data-dialog-type="modal"
+              data-dialog-options='{"width": 760}'
+            >
+              Join Community
+            </a>
+
+          {% endif %}
+        </div>
+
+        {% if city %}
+          <a
+            href="{{ path('entity.node.canonical', {'node': city.id}) }}"
+            class="community-city-button"
+          >
+            Explore {{ city_name }}
+          </a>
+        {% endif %}
+
+      </div>
+
+    </div>
+
+    {% if community_image %}
+      <div class="community-hero__image">
+        <img
+          src="{{ file_url(community_image.fileuri) }}"
+          alt="{{ community_image_alt }}"
+        >
+      </div>
+    {% endif %}
+
+  </section>
+
+
+  <section class="community-stats">
+
+    <div class="community-stat">
+      <span class="community-stat__value">
+        {{ community_event_count|default(0) }}
+      </span>
+
+      <span class="community-stat__label">
+        Upcoming Events
+      </span>
+    </div>
+
+
+    {% if city %}
+      <div class="community-stat">
+        <span class="community-stat__value">
+          {{ city_name }}
+        </span>
+
+        <span class="community-stat__label">
+          City
+        </span>
+      </div>
+    {% endif %}
+
+
+    <div
+      class="community-stat"
+      id="community-member-stat"
+    >
+      <span class="community-stat__value">
+        {{ community_member_count|default(0) }}
+      </span>
+
+      <span class="community-stat__label">
+        {{ community_member_count == 1 ? 'Member' : 'Members' }}
+      </span>
+    </div>
+
+  </section>
+
+
+  <section class="community-about">
+
+    <div class="community-section-heading">
+      <div class="community-section-heading__eyebrow">
+        About This Community
+      </div>
+    </div>
+
+    <div class="community-about__content">
+      {{ node.field_community_description.processed }}
+    </div>
+
+  </section>
+
+
+  <section class="community-events">
+
+    <div class="community-section-heading">
+
+      <div class="community-section-heading__eyebrow">
+        What's happening
+      </div>
+
+      <h2>
+        Upcoming Events
+      </h2>
+
+    </div>
+
+
+    {% if community_events %}
+
+      <div class="community-events__grid">
+
+        {% for event in community_events %}
+
+          <article class="community-event-card">
+
+            <div class="community-event-card__content">
+
+              {% if event.start_date %}
+                <div class="community-event-card__date">
+                  {{ event.start_date|date('d M Y · H:i') }}
+                </div>
+              {% endif %}
+
+              <h3 class="community-event-card__title">
+                <a href="{{ event.url }}">
+                  {{ event.title }}
+                </a>
+              </h3>
+
+              {% if event.location %}
+                <div class="community-event-card__location">
+                  📍 {{ event.location }}
+                </div>
+              {% endif %}
+
+              <a
+                href="{{ event.url }}"
+                class="community-event-card__link"
+              >
+                View Event →
+              </a>
+
+            </div>
+
+          </article>
+
+        {% endfor %}
+
+      </div>
+
+    {% else %}
+
+      <div class="community-events__empty">
+        No upcoming events yet.
+      </div>
+
+    {% endif %}
+
+  </section>
+
+
+  {% if city %}
+
+    <section class="community-city-cta">
+
+      <div>
+
+        <div class="community-section-heading__eyebrow">
+          Explore more
+        </div>
+
+        <h2>
+          Discover {{ city_name }}
+        </h2>
+
+        <p>
+          Explore city guides, transportation information and useful tips for students and young travelers.
+        </p>
+
+      </div>
+
+      <a
+        href="{{ path('entity.node.canonical', {'node': city.id}) }}"
+        class="community-city-button"
+      >
+        Explore {{ city_name }}
+      </a>
+
+    </section>
+
+  {% endif %}
+
+</article>

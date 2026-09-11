@@ -1,0 +1,119 @@
+{#
+/**
+ * Community Event - Full content
+ */
+#}
+
+{% set community = node.field_community.entity %}
+{% set community_name = community ? community.label : '' %}
+{% set event_location = node.field_event_location.value|default('') %}
+{% set start_date = node.field_event_dates.value|default('') %}
+{% set end_date = node.field_event_dates.end_value|default('') %}
+
+<article{{ attributes.addClass('community-event-detail') }}>
+
+  {{ title_prefix }}
+  {{ title_suffix }}
+
+  <header class="community-event-detail__header">
+
+    <div class="community-event-detail__eyebrow">
+      Community event
+    </div>
+
+    <h1 class="community-event-detail__title">
+      {{ label }}
+    </h1>
+
+    {% if community %}
+      <div class="community-event-detail__community">
+        Hosted by
+        <a href="{{ path('entity.node.canonical', {'node': community.id}) }}">
+          {{ community_name }}
+        </a>
+      </div>
+    {% endif %}
+
+  </header>
+
+  <div class="community-event-detail__layout">
+
+    <section class="community-event-detail__main">
+
+      <div class="community-event-info">
+
+        {% if start_date %}
+          <div class="community-event-info__item">
+            <div class="community-event-info__icon">📅</div>
+
+            <div>
+              <div class="community-event-info__label">
+                Date & time
+              </div>
+
+              <div class="community-event-info__value">
+                {{ start_date|date('d M Y · H:i') }}
+
+                {% if end_date %}
+                  <span>→</span>
+                  {{ end_date|date('d M Y · H:i') }}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if event_location %}
+          <div class="community-event-info__item">
+            <div class="community-event-info__icon">📍</div>
+
+            <div>
+              <div class="community-event-info__label">
+                Location
+              </div>
+
+              <div class="community-event-info__value">
+                {{ event_location }}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+      </div>
+
+      <section class="community-event-detail__description">
+
+        <h2>About this event</h2>
+
+        <div class="community-event-detail__description-content">
+          {{ content.field_event_description }}
+        </div>
+
+      </section>
+
+      <div class="community-event-detail__actions">
+        <form
+          method="post"
+          action="{{ path('exploreeu_community.add_to_calendar', {'node': node.id}) }}"
+        >
+          <button type="submit" class="community-event-calendar-button">
+            Add to My Calendar
+          </button>
+        </form>
+      </div>
+
+    </section>
+
+    <aside class="community-event-detail__sidebar">
+
+      {% if content.field_community_event_image is defined %}
+        <div class="community-event-detail__image">
+          {{ content.field_community_event_image }}
+        </div>
+      {% endif %}
+
+    </aside>
+
+  </div>
+
+</article>

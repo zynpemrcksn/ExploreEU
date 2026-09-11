@@ -1,0 +1,8 @@
+name: ExploreEU Community
+type: module
+description: 'Provides community membership and community event features for ExploreEU.'
+package: ExploreEU
+core_version_requirement: ^11
+dependencies:
+  - drupal:node
+  - drupal:user

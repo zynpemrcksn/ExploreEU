@@ -1,0 +1,93 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for ExploreEU Community.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function exploreeu_community_schema(): array {
+  $schema['exploreeu_community_membership'] = [
+    'description' => 'Stores ExploreEU community memberships.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'uid' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'community_nid' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'university' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'current_city' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'student_status' => [
+        'type' => 'varchar',
+        'length' => 100,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'interests' => [
+        'type' => 'text',
+        'size' => 'normal',
+        'not null' => FALSE,
+      ],
+      'introduction' => [
+        'type' => 'text',
+        'size' => 'normal',
+        'not null' => FALSE,
+      ],
+      'created' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+    ],
+    'primary key' => ['id'],
+    'unique keys' => [
+      'user_community' => ['uid', 'community_nid'],
+    ],
+    'indexes' => [
+      'uid' => ['uid'],
+      'community_nid' => ['community_nid'],
+    ],
+  ];
+
+  return $schema;
+}
+/**
+ * Creates the community membership table for existing installations.
+ */
+function exploreeu_community_update_9001(): void {
+  $schema = exploreeu_community_schema();
+
+  if (!\Drupal::database()
+    ->schema()
+    ->tableExists('exploreeu_community_membership')) {
+    \Drupal::database()
+      ->schema()
+      ->createTable(
+        'exploreeu_community_membership',
+        $schema['exploreeu_community_membership']
+      );
+  }
+}
